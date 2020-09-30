@@ -4,10 +4,25 @@
 
 - Github : https://github.com/Sid200026/Discord-Bot-for-Toxic-Comment-Removal/
 - Kaggle : https://www.kaggle.com/c/jigsaw-toxic-comment-classification-challenge/
+- Discord : https://discordpy.readthedocs.io/en/latest/
+
+---
 
 ## Problem Statement
 
 Discussing things you care about can be difficult. The threat of abuse and harassment online means that many people stop expressing themselves and give up on seeking different opinions. Platforms struggle to effectively facilitate conversations, leading many communities to limit or completely shut down user comments.
+
+---
+
+## Discord
+
+An attempt to make a discord bot that can remove toxic comments, warn users, kick or ban them if required. It can also provide reports to the guild or server owner about all the members whoose comments have been deleted.
+
+#### Libraries
+
+- discord.py
+
+---
 
 ## Machine Learning
 

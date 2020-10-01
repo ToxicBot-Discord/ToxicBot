@@ -14,3 +14,7 @@ I'm responsible for ensuring a friendly environment that promotes social well be
 Any message that I deem toxic, insulting, threatening etc will be removed and the author will be given a warning. \
 To know about what I can do, use /help
 """
+
+ONLY_PRIVATE_DMS = """
+Hey {user}, the command can only be invoked by a private DM to ToxicBot.
+"""

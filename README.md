@@ -59,6 +59,7 @@ Given a sentence, classify it among the following labels
 #### Using Term Frequency Inverse Document Frequency
 
 - IPYNB File : [TFIDF and Logistic Regression](ML/Toxic_Comment_Classifier_tfidf.ipynb)
+- [Colab](https://colab.research.google.com/drive/1dRvXLOSmEwfRRIctLiTROt4-UVGxbXtk?usp=sharing)
 
 ##### Output
 
@@ -91,6 +92,7 @@ Given a sentence, classify it among the following labels
 #### Using Custom-Trained Embeddings
 
 - IPYNB File : [Custom-Trained Embedding](ML/Toxic_Comment_Classification_Custom_Word_Embedding.ipynb)
+- [Colab](https://colab.research.google.com/drive/1N6y43z2ioQp0fMYrRlDfnrLdtSQIDQk0?usp=sharing)
 - Save files for Custom Embedding : https://drive.google.com/file/d/14CuMJxEADcO0EWM8x_TQh-QocuohmMnx/view?usp=sharing
 
 ##### Output
@@ -117,7 +119,8 @@ Given a sentence, classify it among the following labels
 #### Using GloVe Embeddings
 
 - IPYNB File : [Custom-Trained Embedding](ML/Toxic_Comment_Classification_using_Pre_Trained_Word_Embeddings.ipynb)
-- Save files for GloVe Embedding : https://drive.google.com/file/d/1URy7DYLAT2yFoaUQSgwQWdMTM6u6qsMP/view?usp=sharing
+- [Colab](https://colab.research.google.com/drive/1N6y43z2ioQp0fMYrRlDfnrLdtSQIDQk0?usp=sharing)
+- [Save files for GloVe Embedding](https://drive.google.com/file/d/1URy7DYLAT2yFoaUQSgwQWdMTM6u6qsMP/view?usp=sharing)
 - Glove : https://nlp.stanford.edu/projects/glove/
 
 ##### Output

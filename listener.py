@@ -6,6 +6,7 @@ import logging
 from constants.messages import REMOVAL_MESSAGE, PERSONAL_MESSAGE_AFTER_REMOVAL, INFO_MESSAGE
 from constants.regex import TOXIC_REGEX
 from helper import handleViolations
+from classifier import predict_toxicity
 
 logger = logging.getLogger('')
 
@@ -23,10 +24,21 @@ class ToxicBotListener(commands.Cog):
     async def on_message(self, message):
         if message.author == self.bot.user:
             return
+        if message.author.dm_channel.id == message.channel.id:
+            return
+
         message_content = message.content
-        if re.search(TOXIC_REGEX, message_content, re.IGNORECASE):
-            await message.delete()
-            await message.channel.send(REMOVAL_MESSAGE.format(username=message.author.mention))
-            await message.author.create_dm()
-            violations = handleViolations([1, 2, 3])
-            await message.author.dm_channel.send(PERSONAL_MESSAGE_AFTER_REMOVAL.format(violations=violations))
+        toxicity = predict_toxicity(message_content)
+
+        indexes = []
+        for index, pred in enumerate(toxicity):
+            if pred == 1:
+                indexes.append(index)
+        if len(indexes) == 0:
+            return
+        await message.delete()
+        await message.channel.send(REMOVAL_MESSAGE.format(username=message.author.mention))
+        await message.author.create_dm()
+
+        violations = handleViolations(indexes)
+        await message.author.dm_channel.send(PERSONAL_MESSAGE_AFTER_REMOVAL.format(violations=violations))

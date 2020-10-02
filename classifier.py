@@ -5,6 +5,7 @@ from keras.losses import BinaryCrossentropy
 from keras.metrics import AUC
 from keras.optimizers import Adam
 
+
 import logging
 import os
 import pickle
@@ -29,6 +30,12 @@ TOKENIZER = pickle.load(tokenizer_pickle)
 tokenizer_pickle.close()
 
 
+def predict_toxicity(message):
+    prediction = classify(message)
+    response = [1 if x >= 0.5 else 0 for x in prediction]
+    return response
+
+
 def classify(message):
     sequence = TOKENIZER.texts_to_sequences([message])
     sequence = pad_sequences(sequence, maxlen=250)
@@ -36,8 +43,8 @@ def classify(message):
     MODEL.compile(loss=BinaryCrossentropy(), optimizer=Adam(), metrics=[AUC()])
     prediction = MODEL.predict(sequence)
 
-    print(prediction)
+    return prediction[0]
 
 
 if __name__ == '__main__':
-    classify("Hello, how are you ?")
+    print(predict_toxicity("Hello, how are you ?"))

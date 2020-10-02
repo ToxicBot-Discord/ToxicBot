@@ -1,4 +1,4 @@
-# Discord Bot for toxic comment removal
+# ToxicBot
 
 **Disclaimer: the dataset for this competition contains text that may be considered profane, vulgar, or offensive.**
 

@@ -129,7 +129,7 @@ Given a sentence, classify it among the following labels
 
 - IPYNB File : [Custom-Trained Embedding](ML/Toxic_Comment_Classification_using_Pre_Trained_Word_Embeddings.ipynb)
 - [Colab](https://colab.research.google.com/drive/1N6y43z2ioQp0fMYrRlDfnrLdtSQIDQk0?usp=sharing)
-- [Save files for GloVe Embedding](https://drive.google.com/file/d/1URy7DYLAT2yFoaUQSgwQWdMTM6u6qsMP/view?usp=sharing)
+- The saved files can be downloaded from the Github's Release Page
 - Glove : https://nlp.stanford.edu/projects/glove/
 
 ##### Output

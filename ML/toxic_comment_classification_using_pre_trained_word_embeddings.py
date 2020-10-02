@@ -15,12 +15,11 @@ import tensorflow as tf
 from keras.preprocessing.text import Tokenizer
 from keras.preprocessing.sequence import pad_sequences
 from keras import Sequential
-from keras.layers import Dense, Embedding, GlobalMaxPool1D
+from keras.layers import Dense, Embedding, GlobalMaxPool1D, LSTM
 from keras.losses import BinaryCrossentropy
 from keras.metrics import AUC
 from keras.optimizers import Adam
 from keras.models import model_from_json
-from tensorflow.compat.v1.keras.layers import CuDNNLSTM
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import roc_auc_score
 
@@ -138,7 +137,7 @@ model = Sequential()
 
 model.add(Embedding(input_dim=vocab_size, output_dim = 300, input_length = 250, weights=[embedding_matrix], trainable = False))
 
-model.add(CuDNNLSTM(units=150,return_sequences=True))
+model.add(LSTM(units=150,return_sequences=True, dropout=0.1))
 
 model.add(GlobalMaxPool1D())
 
@@ -208,4 +207,4 @@ result.head()
 
 result.to_csv('submission.csv', index=False)
 
-! kaggle competitions submit -c jigsaw-toxic-comment-classification-challenge -f submission.csv -m "Using GloVe Word Embeddings"
+! kaggle competitions submit -c jigsaw-toxic-comment-classification-challenge -f submission.csv -m "Using GloVe Word Embeddings and LSTM instead of CUDNNLSTM"

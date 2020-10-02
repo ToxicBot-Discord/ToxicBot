@@ -10,6 +10,8 @@ printf "\n${RED}Toxic${NC} ${GREEN}Bot${NC}\n\n"
 
 echo "${BLUE}Downloading required files${NC}\n"
 
+cd ToxicBot/
+
 # Install the saved files for GloVe embedding
 
 mkdir -p dump
@@ -34,8 +36,8 @@ echo "${RED}Enter Discord Bot Token"
 read BOT_TOKEN
 
 touch secret.ini
-echo "[DISCORD]\n
+echo "[Discord]\n
 BOT_TOKEN=${BOT_TOKEN}\n
-"
+" >secret.ini
 
 printf "\n${GREEN}Installation Complete${NC}\n\n"

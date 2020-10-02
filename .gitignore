@@ -4,3 +4,4 @@ env/
 secrets.ini
 *.log
 dump/
+.vscode/

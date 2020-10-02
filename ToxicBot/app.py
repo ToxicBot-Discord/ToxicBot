@@ -3,16 +3,16 @@ from discord.ext import commands
 import logging
 from configparser import RawConfigParser
 
-import logger
-from commands import ToxicBotCommands
-from listener import ToxicBotListener
-from error import ToxicBotError
+from helper import logger
+from commands.commands import ToxicBotCommands
+from commands.listener import ToxicBotListener
+from commands.error import ToxicBotError
 
 
 logger = logging.getLogger('')
 
 config = RawConfigParser()
-config.read('secrets.ini')
+config.read('secret.ini')
 
 DISCORD_BOT_TOKEN = config.get('Discord', 'BOT_TOKEN')
 COMMAND_PREFIX = "/"

@@ -1,12 +1,13 @@
 from discord.ext import commands
+from discord.channel import DMChannel
 
 import re
 import logging
 
 from constants.messages import REMOVAL_MESSAGE, PERSONAL_MESSAGE_AFTER_REMOVAL, INFO_MESSAGE
 from constants.regex import TOXIC_REGEX
-from helper import handleViolations
-from classifier import predict_toxicity
+from helper.misc import handleViolations
+from classifier.classifier import predict_toxicity
 
 logger = logging.getLogger('')
 
@@ -24,7 +25,7 @@ class ToxicBotListener(commands.Cog):
     async def on_message(self, message):
         if message.author == self.bot.user:
             return
-        if message.author.dm_channel.id == message.channel.id:
+        if isinstance(message.channel, DMChannel):
             return
 
         message_content = message.content

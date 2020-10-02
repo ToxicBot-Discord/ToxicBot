@@ -4,7 +4,7 @@
 
 - Github : https://github.com/Sid200026/Discord-Bot-for-Toxic-Comment-Removal/
 - Kaggle : https://www.kaggle.com/c/jigsaw-toxic-comment-classification-challenge/
-- Discord : https://discordpy.readthedocs.io/en/latest/
+- Discord : https://discord.com/
 
 ---
 
@@ -45,6 +45,8 @@ Discussing things you care about can be difficult. The threat of abuse and haras
 
 ```bash
 apple@Apples-MacBook-Air ~ % bash setup.sh
+apple@Apples-MacBook-Air ToxicBot % cd ToxicBot 
+apple@Apples-MacBook-Air ToxicBot % source env/bin/activate
 apple@Apples-MacBook-Air ~ % python app.py
 ```
 

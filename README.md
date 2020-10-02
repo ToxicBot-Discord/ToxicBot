@@ -33,11 +33,20 @@ Discussing things you care about can be difficult. The threat of abuse and haras
 
 ### Prerequisites
 
+- python 3.6+
+- pip
+- Discord Developer Account
+
 ---
 
 <a name="installation" />
 
 ### Installation
+
+```bash
+apple@Apples-MacBook-Air ~ % bash setup.sh
+apple@Apples-MacBook-Air ~ % python app.py
+```
 
 ---
 

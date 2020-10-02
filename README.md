@@ -16,6 +16,7 @@
 - [ Toxic Comment Classification](#toxic)
   - [ Using TFIDF](#tfidf)
   - [ Using Custom-Trained Embeddings](#custom)
+  - [ Using GloVe Embeddings](#glove)
 - [ Team Members](#team)
 
 ---
@@ -108,6 +109,31 @@ Given a sentence, classify it among the following labels
 ##### Issues
 
 - The reason for a lower score as compared to logistic regression is the fact that the custom model used texts from the train set only. So the vocabulary size was small. As a result the model failed to provide an accurate embedding for words in the test set and thus resulting in a low score.
+
+---
+
+<a name="glove" />
+
+#### Using GloVe Embeddings
+
+- IPYNB File : [Custom-Trained Embedding](ML/Toxic_Comment_Classification_using_Pre_Trained_Word_Embeddings.ipynb)
+- Save files for GloVe Embedding : https://drive.google.com/file/d/1URy7DYLAT2yFoaUQSgwQWdMTM6u6qsMP/view?usp=sharing
+- Glove : https://nlp.stanford.edu/projects/glove/
+
+##### Output
+
+<img src="https://github.com/Sid200026/Discord-Bot-for-Toxic-Comment-Removal/blob/master/ML/Output/GloVe%20Embedding.png" alt="Output"/>
+
+##### Steps
+
+- Preprocessing
+
+  - Use Keras Tokenizer API to convert to lowercase, split the words according to tokens and remove punctuations
+
+- GloVe Word Embeddings using a Recurrent Neural Network ( LSTM ) trained on a GPU.
+- GloVe is an unsupervised learning algorithm for obtaining vector representations for words. Training is performed on aggregated global word-word co-occurrence statistics from a corpus, and the resulting representations showcase interesting linear substructures of the word vector space.
+- GloVe consists of Common Crawl (840B tokens, 2.2M vocab, cased, 300d vectors, 2.03 GB download)
+- AUC-ROC : 0.98
 
 ---
 

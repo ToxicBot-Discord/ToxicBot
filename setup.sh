@@ -32,7 +32,7 @@ pip install -r requirements.txt
 
 echo "${BLUE}Creating the secrets.ini file${NC}\n"
 
-echo "${RED}Enter Discord Bot Token"
+echo "${RED}Enter Discord Bot Token${NC}"
 read BOT_TOKEN
 
 touch secret.ini

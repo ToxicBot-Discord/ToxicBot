@@ -5,3 +5,4 @@ secrets.ini
 *.log
 dump/
 .vscode/
+__pycache__/

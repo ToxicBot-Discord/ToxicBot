@@ -3,7 +3,6 @@
 **Disclaimer: the dataset for this competition contains text that may be considered profane, vulgar, or offensive.**
 
 - Github : https://github.com/Sid200026/Discord-Bot-for-Toxic-Comment-Removal/
-- Kaggle : https://www.kaggle.com/c/jigsaw-toxic-comment-classification-challenge/
 - Discord : https://discord.com/
 
 ---

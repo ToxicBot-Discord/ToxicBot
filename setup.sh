@@ -16,9 +16,9 @@ cd ToxicBot/
 
 mkdir -p dump
 cd dump/
-wget -q --show-progress --progress=bar:force https://github.com/Sid200026/Discord-Bot-for-Toxic-Comment-Removal/releases/download/0.1-alpha/glove_embedding.json 2>&1
-wget -q --show-progress --progress=bar:force https://github.com/Sid200026/Discord-Bot-for-Toxic-Comment-Removal/releases/download/0.1-alpha/tokenizer.pickle 2>&1
-wget -q --show-progress --progress=bar:force https://github.com/Sid200026/Discord-Bot-for-Toxic-Comment-Removal/releases/download/0.1-alpha/weights.h5 2>&1
+wget -q --show-progress --progress=bar:force https://github.com/Sid200026/ToxicBot/releases/download/0.0.1/ToxicBot_GloVeEmbedding.json 2>&1
+wget -q --show-progress --progress=bar:force https://github.com/Sid200026/ToxicBot/releases/download/0.0.1/ToxicBot_Tokenizer.pickle 2>&1
+wget -q --show-progress --progress=bar:force https://github.com/Sid200026/ToxicBot/releases/download/0.0.1/ToxicBot_Weights.h5 2>&1
 cd ..
 # Create a virtual environment and install python dependencies
 

@@ -13,9 +13,9 @@ import pickle
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'  # FATAL
 logging.getLogger('tensorflow').setLevel(logging.FATAL)
 
-EMBEDDING_DUMP = 'glove_embedding.json'
-TOKENIZER_DUMP = 'tokenizer.pickle'
-WEIGHT_DUMP = 'weights.h5'
+EMBEDDING_DUMP = 'ToxicBot_GloVeEmbedding.json'
+TOKENIZER_DUMP = 'ToxicBot_Tokenizer.pickle'
+WEIGHT_DUMP = 'ToxicBot_Weights.h5'
 
 dump_folder = os.path.join(os.getcwd(), 'dump')
 

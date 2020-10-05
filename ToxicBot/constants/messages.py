@@ -12,7 +12,6 @@ INFO_MESSAGE = """
 Hi {username}, this is Mr Toxic Bot. \
 I'm responsible for ensuring a friendly environment that promotes social well being in the channel. \
 Any message that I deem toxic, insulting, threatening etc will be removed and the author will be given a warning. \
-To know about what I can do, use /help
 """
 
 ONLY_PRIVATE_DMS = """

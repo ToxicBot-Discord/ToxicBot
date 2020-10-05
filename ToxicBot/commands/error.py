@@ -1,5 +1,8 @@
 from discord.ext import commands
 from constants.messages import ONLY_PRIVATE_DMS
+import logging
+
+logger = logging.getLogger('')
 
 
 class ToxicBotError(commands.Cog):
@@ -11,3 +14,4 @@ class ToxicBotError(commands.Cog):
     async def on_command_error(self, ctx, error):
         if isinstance(error, commands.PrivateMessageOnly):
             await ctx.channel.send(ONLY_PRIVATE_DMS.format(user=ctx.author.mention))
+        logger.error(str(error))

@@ -4,7 +4,7 @@ Multiple such violations may lead to a temporary or even a permanent ban
 """
 
 PERSONAL_MESSAGE_AFTER_REMOVAL = """
-We deleted your message because it was found to be {violations}. Please refrain from using such messages in the channels. \
+We deleted your message because it was found to be toxic. Please refrain from using such messages in the channels. \
 Repeated violations will result in stricter actions.
 """
 

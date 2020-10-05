@@ -32,7 +32,7 @@ tokenizer_pickle.close()
 
 def predict_toxicity(message):
     prediction = classify(message)
-    response = [1 if x >= 0.5 else 0 for x in prediction]
+    response = 1 if prediction >= 0.5 else 0
     return response
 
 

@@ -1,7 +1,6 @@
 from discord.ext import commands
 
 from constants.messages import REMOVAL_MESSAGE, PERSONAL_MESSAGE_AFTER_REMOVAL, INFO_MESSAGE
-from helper.misc import handleViolations
 
 class ToxicBotCommands(commands.Cog):
 

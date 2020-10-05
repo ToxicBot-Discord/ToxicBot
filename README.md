@@ -2,7 +2,7 @@
 
 **Disclaimer: the dataset for this competition contains text that may be considered profane, vulgar, or offensive.**
 
-- Github : https://github.com/Sid200026/Discord-Bot-for-Toxic-Comment-Removal/
+- Github : https://github.com/Sid200026/ToxicBot/
 - Discord : https://discord.com/
 
 ---
@@ -21,7 +21,7 @@
 
 ### Introduction
 
-Discussing things you care about can be difficult. The threat of abuse and harassment online means that many people stop expressing themselves and give up on seeking different opinions. Platforms struggle to effectively facilitate conversations, leading many communities to limit or completely shut down user comments. Toxic or insulting comments are no where more evident than the popular platform Discord since it is possible to remain anonymous on Discord. We try to develop a discord bot that can remove toxic comments, warn users, kick or ban them if required. It can also provide reports to the guild or server owner about all the members whoose comments have been deleted.
+Discussing things you care about can be difficult. The threat of abuse and harassment online means that many people stop expressing themselves and give up on seeking different opinions. Platforms struggle to effectively facilitate conversations, leading many communities to limit or completely shut down user comments. Toxic or insulting comments are no where more evident than the popular platform Discord since it is possible to remain anonymous on Discord. We try to develop a discord bot that can remove toxic comments and warn users. It can also provide reports to the guild or server owner about all the members whoose comments have been deleted ( not implemented ).
 
 ---
 
@@ -52,8 +52,14 @@ apple@Apples-MacBook-Air ~ % python app.py
 
 ### Toxic Comment Classification
 
+#### Model 1
 - Github : https://github.com/Sid200026/Toxic-Comment-Classification
 - Kaggle : https://www.kaggle.com/c/jigsaw-toxic-comment-classification-challenge/
+- Algorithm : GloVe Embedding and Recurrent Neural Network ( LSTM )
+
+#### Model 2 ( Used here )
+- Github : https://github.com/Sid200026/Unintended-Bias-in-Toxicity-Classification
+- Kaggle : https://www.kaggle.com/c/jigsaw-unintended-bias-in-toxicity-classification
 - Algorithm : GloVe Embedding and Recurrent Neural Network ( LSTM )
 
 ---

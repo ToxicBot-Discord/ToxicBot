@@ -70,5 +70,5 @@ apple@Apples-MacBook-Air ~ % python app.py
 
 ### Team Members
 
-- Rajlaxmi Roy, Vellore Institute of Technology
-- Siddharth Singha Roy, Vellore Institute of Technology
+- Rajlaxmi Roy
+- Siddharth Singha Roy

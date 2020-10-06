@@ -42,6 +42,8 @@ Discussing things you care about can be difficult. The threat of abuse and haras
 ### Installation
 
 ```bash
+apple@Apples-MacBook-Air ~ % git clone https://github.com/Sid200026/ToxicBot.git
+apple@Apples-MacBook-Air ~ % cd ToxicBot
 apple@Apples-MacBook-Air ~ % bash setup.sh
 apple@Apples-MacBook-Air ~ % cd ToxicBot
 apple@Apples-MacBook-Air ~ % source env/bin/activate

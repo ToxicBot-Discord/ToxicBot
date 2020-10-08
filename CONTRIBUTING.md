@@ -16,7 +16,7 @@ Below you will find the process and workflow used to review and merge your chang
 - Fork this Repository. This will create a Local Copy of this Repository on your Github Profile. Keep a reference to the original project in `upstream` remote.
 ```
 $ git clone https://github.com/<your-username>/ToxicBot
-$ cd QuietTxt
+$ cd ToxicBot/
 $ git remote add upstream https://github.com/Sid200026/ToxicBot.git
 ```
 - If you have already forked the project, update your copy before working.

@@ -15,7 +15,6 @@
 - [ Prerequisites](#prereq)
 - [ Installation](#installation)
 - [ Toxic Comment Classification](#toxic)
-- [ Team Members](#team)
 
 ---
 
@@ -67,10 +66,3 @@ apple@Apples-MacBook-Air ~ % python app.py
 - Algorithm : GloVe Embedding and Recurrent Neural Network ( LSTM )
 
 ---
-
-<a name="team" />
-
-### Team Members
-
-- Rajlaxmi Roy
-- Siddharth Singha Roy

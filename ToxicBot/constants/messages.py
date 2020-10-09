@@ -19,7 +19,7 @@ Hi {username}, this is Mr Toxic Bot. \n
 Here's a list of commands you can use to chat with me: \n
 - /report - With this command you'll receive the link of the GitHub page of the project to report bugs and issues \n
 - /info - You'll receive some info about me :D \n
-- /help - You'll receive the list of the commands
+- /help - You'll receive the list of commands
 """
 
 REPORT_MESSAGE = """

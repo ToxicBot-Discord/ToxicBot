@@ -14,6 +14,18 @@ I'm responsible for ensuring a friendly environment that promotes social well be
 Any message that I deem toxic, insulting, threatening etc will be removed and the author will be given a warning. \
 """
 
+HELP_MESSAGE = """
+Hi {username}, this is Mr Toxic Bot. \n
+Here's a list of commands you can use to chat with me: \n
+- /report - With this command you'll receive the link of the GitHub page of the project to report bugs and issues \n
+- /info - You'll receive some info about me :D \n
+- /help - You'll receive the list of commands
+"""
+
+REPORT_MESSAGE = """
+Need something wrong? Here's a link to report that!
+"""
+
 ONLY_PRIVATE_DMS = """
 Hey {user}, the command can only be invoked by a private DM to ToxicBot.
 """

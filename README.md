@@ -38,7 +38,7 @@ Discussing things you care about can be difficult. The threat of abuse and haras
 
 <a name="installation" />
 
-### Installation
+### Installation - Mac/Linux
 
 ```bash
 apple@Apples-MacBook-Air ~ % git clone https://github.com/Sid200026/ToxicBot.git
@@ -48,7 +48,30 @@ apple@Apples-MacBook-Air ~ % cd ToxicBot
 apple@Apples-MacBook-Air ~ % source env/bin/activate
 apple@Apples-MacBook-Air ~ % python app.py
 ```
+### Installation - Windows
 
+* Download and Install Python 3.6 (64 Bit Version)
+  https://www.python.org/ftp/python/3.6.5/python-3.6.5-amd64.exe
+* Download and Install git for windows from https://git-scm.com/download/win 
+* Now open the "git bash" app (Righ-Click on the desktop you will find the "git bash here" option.)
+* Clone the repository -
+```
+git clone https://github.com/Sid200026/ToxicBot.git
+```
+* Execute these commands in your git bash
+```
+cd ToxicBot
+sh setup-win.sh
+```
+* When you exceute the ``` sh setup-win.sh ``` after sometime, it will ask you for discord token. Paste your token and hit enter.
+* installation Done -
+  Now we have to run the app
+* To run execute the following commands in your git bash
+```
+cd ToxicBot
+. env/Scripts/activate
+python app.py
+```
 ---
 
 <a name="toxic" />

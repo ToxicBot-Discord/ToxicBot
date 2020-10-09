@@ -64,7 +64,7 @@ cd ToxicBot
 sh setup-win.sh
 ```
 * When you exceute the ``` sh setup-win.sh ``` after sometime, it will ask you for discord token. Paste your token and hit enter.
-* Insallation Done -
+* installation Done -
   Now we have to run the app
 * To run execute the following commands in your git bash
 ```

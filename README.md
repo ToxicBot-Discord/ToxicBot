@@ -38,7 +38,7 @@ Discussing things you care about can be difficult. The threat of abuse and haras
 
 <a name="installation" />
 
-### Installation - Mac
+### Installation - Mac/Linux
 
 ```bash
 apple@Apples-MacBook-Air ~ % git clone https://github.com/Sid200026/ToxicBot.git
@@ -63,7 +63,7 @@ git clone https://github.com/Sid200026/ToxicBot.git
 cd ToxicBot
 sh setup-win.sh
 ```
-* When you exceute the ``` sh setup-win.exe ``` after sometime, it will ask you for discord token. Paste your token and hit enter.
+* When you exceute the ``` sh setup-win.sh ``` after sometime, it will ask you for discord token. Paste your token and hit enter.
 * Insallation Done -
   Now we have to run the app
 * To run execute the following commands in your git bash

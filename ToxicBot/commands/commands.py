@@ -3,6 +3,7 @@ import discord
 
 from constants.messages import REMOVAL_MESSAGE, PERSONAL_MESSAGE_AFTER_REMOVAL, INFO_MESSAGE, HELP_MESSAGE, REPORT_MESSAGE
 
+
 class ToxicBotCommands(commands.Cog):
 
     def __init__(self, bot):
@@ -28,6 +29,6 @@ class ToxicBotCommands(commands.Cog):
         member = ctx.author
         channel = ctx.channel
         embed = discord.Embed(title='GitHub - ToxicBot',
-                       url='https://github.com/Sid200026/ToxicBot/issues',
-                       description='Report issues and bugds')
+                              url='https://github.com/Sid200026/ToxicBot/issues',
+                              description='Report issues and bugs')
         await ctx.send(embed=embed)

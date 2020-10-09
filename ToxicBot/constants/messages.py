@@ -15,15 +15,15 @@ Any message that I deem toxic, insulting, threatening etc will be removed and th
 """
 
 HELP_MESSAGE = """
-Hi {username}, this is Mr Toxic Bot. \
-Here's a list of commands you can use to chat with me: \
-- /report - With this command you'll receive the link of the GitHub page of the project to report bug and issues \
-- /info - You'll receive some info about this me :D
+Hi {username}, this is Mr Toxic Bot. \n
+Here's a list of commands you can use to chat with me: \n
+- /report - With this command you'll receive the link of the GitHub page of the project to report bug and issues \n
+- /info - You'll receive some info about this me :D \n
 - /help - You'll receive the list of the commands
 """
 
 REPORT_MESSAGE = """
-Need something wrong? Here's a [link](https://github.com/Sid200026/ToxicBot/issues) to report that!
+Need something wrong? Here's a link to report that!
 """
 
 ONLY_PRIVATE_DMS = """

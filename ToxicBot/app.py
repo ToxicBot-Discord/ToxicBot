@@ -17,8 +17,10 @@ config.read('secret.ini')
 DISCORD_BOT_TOKEN = config.get('Discord', 'BOT_TOKEN')
 COMMAND_PREFIX = "/"
 
+print(DISCORD_BOT_TOKEN)
 
 bot = commands.Bot(command_prefix=COMMAND_PREFIX)
+bot.remove_command("help")
 bot.add_cog(ToxicBotCommands(bot))
 bot.add_cog(ToxicBotListener(bot))
 bot.add_cog(ToxicBotError(bot))

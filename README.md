@@ -1,8 +1,8 @@
 # ToxicBot
 
-<img src="https://github.com/Sid200026/ToxicBot/blob/master/public/Logo.png" alt="Toxic Bot">
+<img src="https://github.com/Sid200026/ToxicBot/blob/master/public/Logo.png" width="500" alt="Toxic Bot">
 
-**Disclaimer: the dataset for this competition contains text that may be considered profane, vulgar, or offensive.**
+**Disclaimer: The dataset used for training this bot contains text that may be considered profane, vulgar, or offensive.**
 
 - Github : https://github.com/Sid200026/ToxicBot/
 - Discord : https://discord.com/

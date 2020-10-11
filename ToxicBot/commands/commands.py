@@ -3,7 +3,6 @@ import discord
 
 from constants.messages import REMOVAL_MESSAGE, PERSONAL_MESSAGE_AFTER_REMOVAL, INFO_MESSAGE, HELP_MESSAGE, REPORT_MESSAGE
 
-
 class ToxicBotCommands(commands.Cog):
 
     def __init__(self, bot):

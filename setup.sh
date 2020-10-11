@@ -34,9 +34,28 @@ echo "${BLUE}Creating the secrets.ini file${NC}\n"
 echo "${RED}Enter Discord Bot Token${NC}"
 read BOT_TOKEN
 
+echo "Please provide the database configurations\n"
+echo "${RED}Database host${NC}"
+read HOST
+echo "${RED}Database port${NC}"
+read PORT
+echo "${RED}Database user${NC}"
+read USER
+echo "${RED}Database password${NC}"
+read PASSWORD
+echo "${RED}Database name${NC}"
+read DATABASE
+
 touch secret.ini
-echo "[Discord]\n
-BOT_TOKEN=${BOT_TOKEN}\n
+echo "[DISCORD]
+BOT_TOKEN=${BOT_TOKEN}
+
+[Database]
+DATABASE=${DATABASE}
+USER=${USER}
+PASSWORD=${PASSWORD}
+HOST=${HOST}
+PORT=${PORT}
 " >secret.ini
 
 printf "\n${GREEN}Installation Complete${NC}\n\n"

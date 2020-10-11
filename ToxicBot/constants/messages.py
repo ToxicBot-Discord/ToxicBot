@@ -29,3 +29,31 @@ Need something wrong? Here's a link to report that!
 ONLY_PRIVATE_DMS = """
 Hey {user}, the command can only be invoked by a private DM to ToxicBot.
 """
+
+ADMIN_MESSAGE_AFTER_BOT_JOIN = """
+Howdy, I am Mr. Toxic Bot. I am responsible for ensuring that the server is family friendly. \
+Any obscene or toxic message sent to the server will be immediately deleted and the author will be warned. \
+Here's some configuration that is applied to the server:\n
+- Toxic Count before suspending an user : 20\n
+- Number of days before previous toxic count history is erased for an user : 14 days
+
+The above configurations can be modified by the server administrator.
+"""
+
+REQUISITE_PERMISSION = """
+Sorry {user}, you do not have the requisite priviledges to execute the above command.
+"""
+
+NOT_BOT_OWNER = """
+Sorry {user}, only the owner of the bot can run the above command.
+"""
+
+ADMIN_REQUEST_SERVER_ID = """
+It seems that you are part of multiple servers. Please select which server you want to get the information about.
+"""
+
+ADMIN_CONFIG = """
+Here are the current configurations for the server {guild}:\n
+- Toxic Count before suspending an user : {count}\n
+- Number of days before previous toxic count history is erased for an user : {time} days
+"""

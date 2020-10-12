@@ -28,6 +28,7 @@ python.exe -m pip install --upgrade pip
 py -m venv env
 . env/Scripts/activate
 pip install -r requirements-dev.txt
+pre-commit install
 
 # Create the secrets.ini file
 

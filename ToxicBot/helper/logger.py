@@ -3,7 +3,7 @@ import os
 
 MODE = os.environ.get("MODE")
 LOG_FILE_NAME = "actions.log"
-LOG_FORMAT = "%(asctime)s %(levelname)s || %(message)s"
+LOG_FORMAT = "%(asctime)s %(levelname)s || %(message)s"  # Format for logging
 
 # Log Settings
 
@@ -21,6 +21,6 @@ console_handler.setFormatter(log_format)
 file_handler.setFormatter(log_format)
 
 if MODE == "PRODUCTION":
-    logger.addHandler(file_handler)
+    logger.addHandler(file_handler)  # Add the file handler when in production
 else:
     logger.addHandler(console_handler)

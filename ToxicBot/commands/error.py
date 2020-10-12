@@ -2,11 +2,10 @@ from discord.ext import commands
 from constants.messages import ONLY_PRIVATE_DMS, REQUISITE_PERMISSION, NOT_BOT_OWNER
 import logging
 
-logger = logging.getLogger('')
+logger = logging.getLogger("")
 
 
 class ToxicBotError(commands.Cog):
-
     def __init__(self, bot):
         self.bot = bot
 

@@ -10,22 +10,22 @@ import logging
 import os
 import pickle
 
-os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'  # FATAL
-logging.getLogger('tensorflow').setLevel(logging.FATAL)
+os.environ["TF_CPP_MIN_LOG_LEVEL"] = "3"  # FATAL
+logging.getLogger("tensorflow").setLevel(logging.FATAL)
 
-EMBEDDING_DUMP = 'ToxicBot_GloVeEmbedding.json'
-TOKENIZER_DUMP = 'ToxicBot_Tokenizer.pickle'
-WEIGHT_DUMP = 'ToxicBot_Weights.h5'
+EMBEDDING_DUMP = "ToxicBot_GloVeEmbedding.json"
+TOKENIZER_DUMP = "ToxicBot_Tokenizer.pickle"
+WEIGHT_DUMP = "ToxicBot_Weights.h5"
 
-dump_folder = os.path.join(os.getcwd(), 'dump')
+dump_folder = os.path.join(os.getcwd(), "dump")
 
-json_file = open(os.path.join(dump_folder, EMBEDDING_DUMP), 'r')
+json_file = open(os.path.join(dump_folder, EMBEDDING_DUMP), "r")
 loaded_model_json = json_file.read()
 json_file.close()
 MODEL = model_from_json(loaded_model_json)
 MODEL.load_weights(os.path.join(dump_folder, WEIGHT_DUMP))
 
-tokenizer_pickle = open(os.path.join(dump_folder, TOKENIZER_DUMP), 'rb')
+tokenizer_pickle = open(os.path.join(dump_folder, TOKENIZER_DUMP), "rb")
 TOKENIZER = pickle.load(tokenizer_pickle)
 tokenizer_pickle.close()
 
@@ -46,5 +46,5 @@ def classify(message):
     return prediction[0]
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     print(predict_toxicity("Hello, how are you ?"))

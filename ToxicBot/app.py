@@ -11,12 +11,12 @@ from commands.admin import ToxicBotAdminCommands
 from database.create import CreateTables
 
 
-logger = logging.getLogger('')
+logger = logging.getLogger("")
 
 config = RawConfigParser()
-config.read('secret.ini')
+config.read("secret.ini")
 
-DISCORD_BOT_TOKEN = config.get('DISCORD', 'BOT_TOKEN')
+DISCORD_BOT_TOKEN = config.get("DISCORD", "BOT_TOKEN")
 COMMAND_PREFIX = "/"
 
 create_table = CreateTables()

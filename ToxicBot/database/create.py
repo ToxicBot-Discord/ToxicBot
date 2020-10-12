@@ -2,13 +2,13 @@ import psycopg2
 from configparser import RawConfigParser
 
 config = RawConfigParser()
-config.read('secret.ini')
+config.read("secret.ini")
 
-USER = config.get('DATABASE', 'USER')
-PASSWORD = config.get('DATABASE', 'PASSWORD')
-HOST = config.get('DATABASE', 'HOST')
-PORT = config.get('DATABASE', 'PORT')
-DATABASE = config.get('DATABASE', 'DATABASE')
+USER = config.get("DATABASE", "USER")
+PASSWORD = config.get("DATABASE", "PASSWORD")
+HOST = config.get("DATABASE", "HOST")
+PORT = config.get("DATABASE", "PORT")
+DATABASE = config.get("DATABASE", "DATABASE")
 
 
 class CreateTables:
@@ -23,7 +23,8 @@ class CreateTables:
     def connect(self):
         try:
             connection = psycopg2.connect(
-                user=USER, password=PASSWORD, host=HOST, port=PORT, database=DATABASE)
+                user=USER, password=PASSWORD, host=HOST, port=PORT, database=DATABASE
+            )
             cursor = connection.cursor()
             print(connection.get_dsn_parameters(), "\n")
             cursor.execute("SELECT version();")
@@ -39,14 +40,14 @@ class CreateTables:
         if not self.connection:
             raise ValueError("Connection does not exist")
 
-        create_table_query = '''
+        create_table_query = """
             CREATE TABLE IF NOT EXISTS tblToxicCounts(
                 Server_Id TEXT NOT NULL,
                 User_Id TEXT NOT NULL,
                 Toxic_Count SMALLINT NOT NULL,
                 timestamp timestamp default current_timestamp,
                 UNIQUE (Server_Id, User_Id)
-            );'''
+            );"""
 
         cursor = self.connection.cursor()
         cursor.execute(create_table_query)
@@ -57,7 +58,7 @@ class CreateTables:
         if not self.connection:
             raise ValueError("Connection does not exist")
 
-        create_table_query = '''
+        create_table_query = """
             CREATE TABLE IF NOT EXISTS tblServerConfig(
                 Server_Id TEXT NOT NULL,
                 Toxic_Limit SMALLINT NOT NULL DEFAULT 20,
@@ -65,7 +66,7 @@ class CreateTables:
                 Server_Owner_Id TEXT NOT NULL,
                 timestamp timestamp default current_timestamp,
                 UNIQUE (Server_Id)
-            );'''
+            );"""
 
         cursor = self.connection.cursor()
         cursor.execute(create_table_query)

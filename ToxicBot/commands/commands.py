@@ -1,10 +1,18 @@
 from discord.ext import commands
 import discord
 
-from constants.messages import ADMIN_HELP_MESSAGE, REMOVAL_MESSAGE, PERSONAL_MESSAGE_AFTER_REMOVAL, INFO_MESSAGE, HELP_MESSAGE, REPORT_MESSAGE
+from constants.messages import (
+    ADMIN_HELP_MESSAGE,
+    REMOVAL_MESSAGE,
+    PERSONAL_MESSAGE_AFTER_REMOVAL,
+    INFO_MESSAGE,
+    HELP_MESSAGE,
+    REPORT_MESSAGE,
+)
 from database.add_server_config import ServerConfig
-class ToxicBotGeneralCommands(commands.Cog):
 
+
+class ToxicBotGeneralCommands(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
@@ -30,13 +38,14 @@ class ToxicBotGeneralCommands(commands.Cog):
             pass
         await ctx.send(ADMIN_HELP_MESSAGE.format(username=member.name))
 
-
     @commands.command()
     @commands.dm_only()
     async def report(self, ctx):
         member = ctx.author
         channel = ctx.channel
-        embed = discord.Embed(title='GitHub - ToxicBot',
-                              url='https://github.com/Sid200026/ToxicBot/issues',
-                              description='Report issues and bugs')
+        embed = discord.Embed(
+            title="GitHub - ToxicBot",
+            url="https://github.com/Sid200026/ToxicBot/issues",
+            description="Report issues and bugs",
+        )
         await ctx.send(embed=embed)

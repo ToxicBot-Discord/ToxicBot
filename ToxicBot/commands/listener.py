@@ -5,24 +5,28 @@ from discord.utils import find
 import re
 import logging
 
-from constants.messages import REMOVAL_MESSAGE, PERSONAL_MESSAGE_AFTER_REMOVAL, INFO_MESSAGE, ADMIN_MESSAGE_AFTER_BOT_JOIN
+from constants.messages import (
+    REMOVAL_MESSAGE,
+    PERSONAL_MESSAGE_AFTER_REMOVAL,
+    INFO_MESSAGE,
+    ADMIN_MESSAGE_AFTER_BOT_JOIN,
+)
 from constants.regex import TOXIC_REGEX
 from classifier.classifier import predict_toxicity
 from database.add_toxic_count import AddToxicCount
 from database.add_server_config import ServerConfig
 
 toxic_bot_adder = AddToxicCount()
-logger = logging.getLogger('')
+logger = logging.getLogger("")
 
 
 class ToxicBotListener(commands.Cog):
-
     def __init__(self, bot):
         self.bot = bot
 
     @commands.Cog.listener()
     async def on_ready(self):
-        logger.warning('Logged on as {0}!'.format(self.bot.user.name))
+        logger.warning("Logged on as {0}!".format(self.bot.user.name))
 
     @commands.Cog.listener()
     async def on_guild_join(self, guild):
@@ -36,7 +40,7 @@ class ToxicBotListener(commands.Cog):
         # Doesn't work as it returns None always
         owner = self.bot.get_user(int(SERVER_OWNER_ID))
         if owner is None:
-            general = find(lambda x: x.name == 'general',  guild.text_channels)
+            general = find(lambda x: x.name == "general", guild.text_channels)
             if general and general.permissions_for(guild.me).send_messages:
                 await general.send(ADMIN_MESSAGE_AFTER_BOT_JOIN)
         else:
@@ -56,7 +60,9 @@ class ToxicBotListener(commands.Cog):
         if toxicity == 0:
             return
         await message.delete()
-        await message.channel.send(REMOVAL_MESSAGE.format(username=message.author.mention))
+        await message.channel.send(
+            REMOVAL_MESSAGE.format(username=message.author.mention)
+        )
         await message.author.create_dm()
 
         await message.author.dm_channel.send(PERSONAL_MESSAGE_AFTER_REMOVAL)
@@ -65,6 +71,6 @@ class ToxicBotListener(commands.Cog):
         SERVER_ID = str(message.guild.id)
         SERVER_OWNER_ID = str(message.guild.owner_id)
 
-        if(USER_ID == SERVER_OWNER_ID):
+        if USER_ID == SERVER_OWNER_ID:
             return
         toxic_bot_adder.addToxicCount(SERVER_ID, USER_ID)

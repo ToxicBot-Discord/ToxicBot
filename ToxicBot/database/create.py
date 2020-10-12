@@ -10,18 +10,24 @@ HOST = config.get("DATABASE", "HOST")
 PORT = config.get("DATABASE", "PORT")
 DATABASE = config.get("DATABASE", "DATABASE")
 
+"""
+CreateTables is responsible for creating the database tables if does not exist when
+the program is executed
+"""
+
 
 class CreateTables:
     def __init__(self):
         self.connection = None
         self.connect()
 
-    def __del__(self):
+    def __del__(self):  # Closes the connection
         if self.connection:
             self.connection.close()
 
     def connect(self):
         try:
+            # Connect to the db instance
             connection = psycopg2.connect(user=USER, password=PASSWORD, host=HOST, port=PORT, database=DATABASE)
             cursor = connection.cursor()
             print(connection.get_dsn_parameters(), "\n")
@@ -48,8 +54,8 @@ class CreateTables:
             );"""
 
         cursor = self.connection.cursor()
-        cursor.execute(create_table_query)
-        self.connection.commit()
+        cursor.execute(create_table_query)  # Execute the query
+        self.connection.commit()  # Commit the transaction
         cursor.close()
 
     def createServerConfigSchema(self):

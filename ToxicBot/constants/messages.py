@@ -1,3 +1,5 @@
+# Messages issued by the bot to the user
+
 REMOVAL_MESSAGE = """
 The message by {username} was deleted as it violated the channel's moral guidelines.
 Multiple such violations may lead to a temporary or even a permanent ban
@@ -76,4 +78,12 @@ Here's a list of admin commands which only server owners can use: \n
 - /config - Current configurations of toxic bot \n
 - /setcount 10 - Set the toxic comment count before suspending an user ( 10 is just an arbitrary number ) \n
 - /setdays 15 - Set the number of days before resetting toxic count for an user ( 15 is just an arbitrary number ) \n
+"""
+
+BAD_ARGUMENT = """
+Improper arguments passed.
+"""
+
+REQUEST_TIMEOUT = """
+Oopsies. Looks like the request timed out. Please try again
 """

@@ -1,5 +1,4 @@
 import psycopg2
-import datetime
 from configparser import RawConfigParser
 from discord.ext.commands import NotOwner
 
@@ -24,9 +23,7 @@ class ServerConfig:
 
     def connect(self):
         try:
-            connection = psycopg2.connect(
-                user=USER, password=PASSWORD, host=HOST, port=PORT, database=DATABASE
-            )
+            connection = psycopg2.connect(user=USER, password=PASSWORD, host=HOST, port=PORT, database=DATABASE)
             self.connection = connection
         except (Exception, psycopg2.Error) as error:
             print("Error while connecting to PostgreSQL", error)
@@ -67,15 +64,11 @@ class ServerConfig:
                             VALUES (%s,%s,%s,%s) """
 
             cursor = self.connection.cursor()
-            cursor.execute(
-                sql_insert_query, (server_id, count, threshold, server_owner_id)
-            )
+            cursor.execute(sql_insert_query, (server_id, count, threshold, server_owner_id))
         self.connection.commit()
         cursor.close()
 
-    def modifyServerConfig(
-        self, server_owner_id, server_id=None, count=None, threshold=None
-    ):
+    def modifyServerConfig(self, server_owner_id, server_id=None, count=None, threshold=None):
         record = self.getConfigFromUser(server_owner_id)
         if record[3] != server_owner_id:
             raise NotOwner("You are not the admin of this server")
@@ -85,7 +78,7 @@ class ServerConfig:
         if threshold is None:
             threshold = record[2]
 
-        sql_update_query = """ UPDATE tblServerConfig 
+        sql_update_query = """ UPDATE tblServerConfig
             SET Toxic_Limit = %s,
             Toxic_Time_Threshold = %s
             WHERE Server_Id = %s

@@ -1,4 +1,3 @@
-from keras.preprocessing.text import Tokenizer
 from keras.models import model_from_json
 from keras.preprocessing.sequence import pad_sequences
 from keras.losses import BinaryCrossentropy

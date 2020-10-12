@@ -23,9 +23,7 @@ class AddToxicCount:
 
     def connect(self):
         try:
-            connection = psycopg2.connect(
-                user=USER, password=PASSWORD, host=HOST, port=PORT, database=DATABASE
-            )
+            connection = psycopg2.connect(user=USER, password=PASSWORD, host=HOST, port=PORT, database=DATABASE)
             self.connection = connection
         except (Exception, psycopg2.Error) as error:
             print("Error while connecting to PostgreSQL", error)
@@ -33,9 +31,7 @@ class AddToxicCount:
     def deleteRecord(self, server_id, user_id):
         if not self.connection:
             raise ValueError("Connection does not exist")
-        sql_delete_query = (
-            """DELETE from tblToxicCounts WHERE Server_Id = %s AND User_Id = %s"""
-        )
+        sql_delete_query = """DELETE from tblToxicCounts WHERE Server_Id = %s AND User_Id = %s"""
         cursor = self.connection.cursor()
         cursor.execute(sql_delete_query, (server_id, user_id))
         self.connection.commit()
@@ -45,9 +41,7 @@ class AddToxicCount:
         if not self.connection:
             raise ValueError("Connection does not exist")
 
-        sql_select_query = (
-            "SELECT * from tblToxicCounts WHERE Server_Id = %s AND User_Id = %s LIMIT 1"
-        )
+        sql_select_query = "SELECT * from tblToxicCounts WHERE Server_Id = %s AND User_Id = %s LIMIT 1"
         cursor = self.connection.cursor()
         cursor.execute(sql_select_query, (server_id, user_id))
         records = cursor.fetchall()
@@ -56,20 +50,19 @@ class AddToxicCount:
             return False
         record = records[0]
         timestamp = record[3]
-        # Delete toxic count for a certain user if it has exceeded a certain time threshold
+        # Delete toxic count for a certain user if it
+        # has exceeded a certain time threshold
         current_time = datetime.datetime.now()
         difference_in_time = current_time - timestamp
         difference_in_time_in_s = difference_in_time.total_seconds()
         days = divmod(difference_in_time_in_s, 86400)[0]
-        sql_select_config_query = (
-            "SELECT * from tblServerConfig WHERE Server_Id = %s LIMIT 1"
-        )
+        sql_select_config_query = "SELECT * from tblServerConfig WHERE Server_Id = %s LIMIT 1"
         cursor = self.connection.cursor()
-        cursor.execute(sql_select_query, (server_id))
+        cursor.execute(sql_select_config_query, (server_id))
         config_records = cursor.fetchall()
         config_days = config_records[0][2]
         if days > config_days:
-            deleteRecord(server_id, user_id)
+            self.deleteRecord(server_id, user_id)
             return False
         return True
 
@@ -79,9 +72,9 @@ class AddToxicCount:
             raise ValueError("Connection does not exist")
 
         if self.checkIfExists(server_id, user_id):
-            sql_update_query = """ UPDATE tblToxicCounts 
+            sql_update_query = """ UPDATE tblToxicCounts
                 SET Toxic_Count = Toxic_Count + 1
-                WHERE Server_Id = %s AND User_Id = %s 
+                WHERE Server_Id = %s AND User_Id = %s
                 """
             cursor = self.connection.cursor()
             cursor.execute(sql_update_query, (server_id, user_id))

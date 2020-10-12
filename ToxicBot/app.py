@@ -1,4 +1,3 @@
-import discord
 from discord.ext import commands
 import logging
 from configparser import RawConfigParser
@@ -11,7 +10,7 @@ from commands.admin import ToxicBotAdminCommands
 from database.create import CreateTables
 
 
-logger = logging.getLogger("")
+logger = logging.getLogger("")  # noqa F811
 
 config = RawConfigParser()
 config.read("secret.ini")

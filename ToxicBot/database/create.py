@@ -22,9 +22,7 @@ class CreateTables:
 
     def connect(self):
         try:
-            connection = psycopg2.connect(
-                user=USER, password=PASSWORD, host=HOST, port=PORT, database=DATABASE
-            )
+            connection = psycopg2.connect(user=USER, password=PASSWORD, host=HOST, port=PORT, database=DATABASE)
             cursor = connection.cursor()
             print(connection.get_dsn_parameters(), "\n")
             cursor.execute("SELECT version();")

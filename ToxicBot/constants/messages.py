@@ -74,6 +74,6 @@ Here's a list of commands you can use to chat with me: \n
 - /help - You'll receive the list of commands \n
 Here's a list of admin commands which only server owners can use: \n
 - /config - Current configurations of toxic bot \n
-- /setcount 10 - Set the toxic comment count before suspending an user ( 10 is just an arbitrary number ) \n 
-- /setdays 15 - Set the number of days before resetting toxic count for an user ( 15 is just an arbitrary number ) \n 
+- /setcount 10 - Set the toxic comment count before suspending an user ( 10 is just an arbitrary number ) \n
+- /setdays 15 - Set the number of days before resetting toxic count for an user ( 15 is just an arbitrary number ) \n
 """

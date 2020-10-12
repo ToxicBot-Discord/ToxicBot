@@ -27,7 +27,7 @@ py -m pip install virtualenv
 python.exe -m pip install --upgrade pip
 py -m venv env
 . env/Scripts/activate
-pip install -r requirements.txt
+pip install -r requirements-dev.txt
 
 # Create the secrets.ini file
 

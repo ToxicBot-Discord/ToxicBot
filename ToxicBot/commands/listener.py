@@ -2,16 +2,13 @@ from discord.ext import commands
 from discord.channel import DMChannel
 from discord.utils import find
 
-import re
 import logging
 
 from constants.messages import (
     REMOVAL_MESSAGE,
     PERSONAL_MESSAGE_AFTER_REMOVAL,
-    INFO_MESSAGE,
     ADMIN_MESSAGE_AFTER_BOT_JOIN,
 )
-from constants.regex import TOXIC_REGEX
 from classifier.classifier import predict_toxicity
 from database.add_toxic_count import AddToxicCount
 from database.add_server_config import ServerConfig
@@ -60,9 +57,7 @@ class ToxicBotListener(commands.Cog):
         if toxicity == 0:
             return
         await message.delete()
-        await message.channel.send(
-            REMOVAL_MESSAGE.format(username=message.author.mention)
-        )
+        await message.channel.send(REMOVAL_MESSAGE.format(username=message.author.mention))
         await message.author.create_dm()
 
         await message.author.dm_channel.send(PERSONAL_MESSAGE_AFTER_REMOVAL)

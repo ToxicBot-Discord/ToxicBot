@@ -56,27 +56,12 @@ class ServerConfig:
         else:
             raise AttributeError("Author admin of multiple servers")
 
-    def modifyServerConfig(self, server_id, server_owner_id, count=20, threshold=14):
+    def createServerConfig(self, server_id, server_owner_id, count=20, threshold=14):
 
         if not self.connection:
             raise ValueError("Connection does not exist")
         records = self.getConfig(server_id)
-        if len(records) > 0:
-            record = records[0]
-            if record[3] != server_owner_id:
-                raise NotOwner("You are not the admin of this server")
-            if count is self.modifyServerConfig.__defaults__[0]:
-                count = record[1]
-            if threshold is self.modifyServerConfig.__defaults__[1]:
-                threshold = record[2]
-            sql_update_query = """ UPDATE tblServerConfig 
-                SET Toxic_Limit = %s,
-                Toxic_Time_Threshold = %s
-                WHERE Server_Id = %s
-                """
-            cursor = self.connection.cursor()
-            cursor.execute(sql_update_query, (count, threshold, server_id))
-        else:
+        if len(records) == 0:
             sql_insert_query = """ INSERT INTO tblServerConfig (Server_Id, Toxic_Limit, Toxic_Time_Threshold, Server_Owner_Id)
                             VALUES (%s,%s,%s,%s) """
 
@@ -85,6 +70,27 @@ class ServerConfig:
                                               count, threshold, server_owner_id))
         self.connection.commit()
         cursor.close()
+
+    def modifyServerConfig(self, server_owner_id, server_id=None, count=None, threshold=None):
+        record = self.getConfigFromUser(server_owner_id)
+        if record[3] != server_owner_id:
+            raise NotOwner("You are not the admin of this server")
+        SERVER_ID = record[0]
+        if count is None:
+            count = record[1]
+        if threshold is None:
+            threshold = record[2]
+        
+        sql_update_query = """ UPDATE tblServerConfig 
+            SET Toxic_Limit = %s,
+            Toxic_Time_Threshold = %s
+            WHERE Server_Id = %s
+            """
+        cursor = self.connection.cursor()
+        cursor.execute(sql_update_query, (count, threshold, SERVER_ID))
+        self.connection.commit()
+        cursor.close()
+        return SERVER_ID  # Returns the server id
 
 
 if __name__ == "__main__":

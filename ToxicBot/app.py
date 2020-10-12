@@ -4,7 +4,7 @@ import logging
 from configparser import RawConfigParser
 
 from helper import logger
-from commands.commands import ToxicBotCommands
+from commands.commands import ToxicBotGeneralCommands
 from commands.listener import ToxicBotListener
 from commands.error import ToxicBotError
 from commands.admin import ToxicBotAdminCommands
@@ -26,7 +26,7 @@ logger.info("Database created successfully")
 
 bot = commands.Bot(command_prefix=COMMAND_PREFIX)
 bot.remove_command("help")
-bot.add_cog(ToxicBotCommands(bot))
+bot.add_cog(ToxicBotGeneralCommands(bot))
 bot.add_cog(ToxicBotListener(bot))
 bot.add_cog(ToxicBotError(bot))
 bot.add_cog(ToxicBotAdminCommands(bot))

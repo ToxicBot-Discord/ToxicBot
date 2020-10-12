@@ -57,3 +57,23 @@ Here are the current configurations for the server {guild}:\n
 - Toxic Count before suspending an user : {count}\n
 - Number of days before previous toxic count history is erased for an user : {time} days
 """
+
+REQUIRE_NUMERICAL_VALUE = """
+{entity} must be a numerical value
+"""
+
+SUCCESSFUL_UPDATE = """
+{entity} updated for server {server}
+"""
+
+ADMIN_HELP_MESSAGE = """
+Hi {username}, this is Mr Toxic Bot. \n
+Here's a list of commands you can use to chat with me: \n
+- /report - With this command you'll receive the link of the GitHub page of the project to report bugs and issues \n
+- /info - You'll receive some info about me :D \n
+- /help - You'll receive the list of commands \n
+Here's a list of admin commands which only server owners can use: \n
+- /config - Current configurations of toxic bot \n
+- /setcount 10 - Set the toxic comment count before suspending an user ( 10 is just an arbitrary number ) \n 
+- /setdays 15 - Set the number of days before resetting toxic count for an user ( 15 is just an arbitrary number ) \n 
+"""

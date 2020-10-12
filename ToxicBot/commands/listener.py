@@ -29,12 +29,12 @@ class ToxicBotListener(commands.Cog):
         server_config = ServerConfig()
         SERVER_ID = str(guild.id)
         SERVER_OWNER_ID = str(guild.owner_id)
-        server_config.modifyServerConfig(SERVER_ID, SERVER_OWNER_ID)
+        server_config.createServerConfig(SERVER_ID, SERVER_OWNER_ID)
 
         await self.bot.wait_until_ready()
 
-        owner = self.bot.get_user(int(SERVER_OWNER_ID)) # Doesn't work
-        print(owner)
+        # Doesn't work as it returns None always
+        owner = self.bot.get_user(int(SERVER_OWNER_ID))
         if owner is None:
             general = find(lambda x: x.name == 'general',  guild.text_channels)
             if general and general.permissions_for(guild.me).send_messages:

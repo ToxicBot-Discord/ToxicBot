@@ -56,7 +56,12 @@ class AddToxicCount:
         difference_in_time = current_time - timestamp
         difference_in_time_in_s = difference_in_time.total_seconds()
         days = divmod(difference_in_time_in_s, 86400)[0]
-        if days > 14:
+        sql_select_config_query = "SELECT * from tblServerConfig WHERE Server_Id = %s LIMIT 1"
+        cursor = self.connection.cursor()
+        cursor.execute(sql_select_query, (server_id))
+        config_records = cursor.fetchall()
+        config_days = config_records[0][2]
+        if days > config_days:
             deleteRecord(server_id, user_id)
             return False
         return True

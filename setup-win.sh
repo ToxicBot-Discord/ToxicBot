@@ -53,7 +53,7 @@ touch secret.ini
 echo "[DISCORD]
 BOT_TOKEN=${BOT_TOKEN}
 
-[Database]
+[DATABASE]
 DATABASE=${DATABASE}
 USER=${USER}
 PASSWORD=${PASSWORD}

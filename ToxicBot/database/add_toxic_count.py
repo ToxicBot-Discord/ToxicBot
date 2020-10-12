@@ -45,6 +45,7 @@ class AddToxicCount:
         cursor = self.connection.cursor()
         cursor.execute(sql_select_query, (server_id, user_id))
         records = cursor.fetchall()
+        self.connection.commit()
         cursor.close()
         if len(records) == 0:
             return False
@@ -58,7 +59,8 @@ class AddToxicCount:
         days = divmod(difference_in_time_in_s, 86400)[0]
         sql_select_config_query = "SELECT * from tblServerConfig WHERE Server_Id = %s LIMIT 1"
         cursor = self.connection.cursor()
-        cursor.execute(sql_select_config_query, (server_id))
+        cursor.execute(sql_select_config_query, (server_id,))
+        self.connection.commit()
         config_records = cursor.fetchall()
         config_days = config_records[0][2]
         if days > config_days:
@@ -84,5 +86,24 @@ class AddToxicCount:
 
             cursor = self.connection.cursor()
             cursor.execute(sql_insert_query, (server_id, user_id, 1))
+        self.connection.commit()
+        sql_select_config_query = "SELECT tblToxicCounts.Toxic_Count, tblServerConfig.Toxic_Limit \
+            FROM tblToxicCounts JOIN tblServerConfig \
+            ON \
+            tblToxicCounts.Server_Id = %s AND \
+            tblServerConfig.Server_Id = %s AND \
+            tblToxicCounts.User_Id = %s \
+            LIMIT 1"
+        cursor.execute(sql_select_config_query, (server_id, server_id, user_id))
+        records = cursor.fetchall()
+        record = records[0]
+        toxic_count = record[0]
+        toxic_threshold = record[1]
+        if toxic_count > toxic_threshold:
+            sql_delete_query = "DELETE from tblToxicCounts WHERE Server_Id = %s AND User_Id = %s"
+            cursor = self.connection.cursor()
+            cursor.execute(sql_delete_query, (server_id, user_id))
+            self.connection.commit()
+            raise AttributeError("Ban User")
         self.connection.commit()
         cursor.close()

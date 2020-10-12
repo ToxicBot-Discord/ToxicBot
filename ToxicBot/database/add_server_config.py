@@ -36,16 +36,22 @@ class ServerConfig:
         cursor = self.connection.cursor()
         cursor.execute(sql_select_query, (server_id,))
         records = cursor.fetchall()
+        self.connection.commit()
         cursor.close()
         return records
 
     def getConfigFromUser(self, user_id, server_id=None):
         if not self.connection:
             raise ValueError("Connection does not exist")
-        sql_select_query = "SELECT * from tblServerConfig WHERE Server_Owner_Id = %s"
         cursor = self.connection.cursor()
-        cursor.execute(sql_select_query, (user_id,))
+        if server_id is not None:
+            sql_select_query = "SELECT * from tblServerConfig WHERE Server_Owner_Id = %s AND Server_Id = %s"
+            cursor.execute(sql_select_query, (user_id, server_id))
+        else:
+            sql_select_query = "SELECT * from tblServerConfig WHERE Server_Owner_Id = %s"
+            cursor.execute(sql_select_query, (user_id,))
         records = cursor.fetchall()
+        self.connection.commit()
         cursor.close()
         if len(records) == 0:
             raise NotOwner("You are not the admin of any server")
@@ -69,7 +75,7 @@ class ServerConfig:
         cursor.close()
 
     def modifyServerConfig(self, server_owner_id, server_id=None, count=None, threshold=None):
-        record = self.getConfigFromUser(server_owner_id)
+        record = self.getConfigFromUser(server_owner_id, server_id)
         if record[3] != server_owner_id:
             raise NotOwner("You are not the admin of this server")
         SERVER_ID = record[0]
@@ -88,6 +94,17 @@ class ServerConfig:
         self.connection.commit()
         cursor.close()
         return SERVER_ID  # Returns the server id
+
+    def getAllServers(self, server_owner_id):
+        if not self.connection:
+            raise ValueError("Connection does not exist")
+        sql_select_query = "SELECT * from tblServerConfig WHERE Server_Owner_Id = %s"
+        cursor = self.connection.cursor()
+        cursor.execute(sql_select_query, (server_owner_id,))
+        records = cursor.fetchall()
+        self.connection.commit()
+        cursor.close()
+        return records
 
 
 if __name__ == "__main__":

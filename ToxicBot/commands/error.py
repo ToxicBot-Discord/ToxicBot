@@ -15,5 +15,5 @@ class ToxicBotError(commands.Cog):
             await ctx.channel.send(ONLY_PRIVATE_DMS.format(user=ctx.author.mention))
         elif isinstance(error, commands.NotOwner):
             await ctx.channel.send(NOT_BOT_OWNER.format(user=ctx.author.mention))
-        else:
+        elif isinstance(error, Exception):
             logger.error(str(error))

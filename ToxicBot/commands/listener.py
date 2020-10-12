@@ -45,6 +45,7 @@ class ToxicBotListener(commands.Cog):
             await owner.dm_channel.send(ADMIN_MESSAGE_AFTER_BOT_JOIN)
 
     @commands.Cog.listener()
+    @commands.bot_has_guild_permissions(ban_members=True)
     async def on_message(self, message):
         if message.author == self.bot.user:
             return
@@ -68,4 +69,7 @@ class ToxicBotListener(commands.Cog):
 
         if USER_ID == SERVER_OWNER_ID:
             return
-        toxic_bot_adder.addToxicCount(SERVER_ID, USER_ID)
+        try:
+            toxic_bot_adder.addToxicCount(SERVER_ID, USER_ID)
+        except AttributeError:
+            await message.guild.kick(message.author, reason="Toxic Message Limit Exceeded")

@@ -12,14 +12,14 @@ PORT = config.get("DATABASE", "PORT")
 DATABASE = config.get("DATABASE", "DATABASE")
 
 """
-AddToxicCount is responsible for ensuring that any toxic messages is added to the database.
+ToxicCount is responsible for ensuring that any toxic messages is added to the database.
 This information is later used to determine whether we need to ban the user.
 
 Any record can be identified uniquely using the server_id and user_id.
 """
 
 
-class AddToxicCount:
+class ToxicCount:
     def __init__(self):
         self.connection = None
         self.connect()
@@ -120,3 +120,18 @@ class AddToxicCount:
             raise AttributeError("Ban User")  # Raise an error to request the ban of the user
         self.connection.commit()
         cursor.close()
+
+    # This method gets the top n users having the most toxic comments for that server
+    def getTopRecords(self, server_id, top):
+        if not self.connection:
+            raise ValueError("Connection does not exist")
+        cursor = self.connection.cursor()
+        # Get the top n records for that server
+        sql_select_query = """
+        SELECT * from tblToxicCounts WHERE Server_Id = %s ORDER BY Toxic_Count DESC LIMIT %s
+        """
+        cursor.execute(sql_select_query, (server_id, top))
+        self.connection.commit()
+        # Return all the top n records
+        records = cursor.fetchall()
+        return records

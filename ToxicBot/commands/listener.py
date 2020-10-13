@@ -10,10 +10,10 @@ from constants.messages import (
     ADMIN_MESSAGE_AFTER_BOT_JOIN,
 )
 from classifier.classifier import predict_toxicity
-from database.add_toxic_count import AddToxicCount
-from database.add_server_config import ServerConfig
+from database.toxic_count import ToxicCount
+from database.server_config import ServerConfig
 
-toxic_bot_adder = AddToxicCount()
+toxic_bot_adder = ToxicCount()
 logger = logging.getLogger("")
 
 
@@ -74,5 +74,5 @@ class ToxicBotListener(commands.Cog):
             return  # Do not add to database if user is the bot owner
         try:
             toxic_bot_adder.addToxicCount(SERVER_ID, USER_ID)  # Add to the database
-        except AttributeError:  # If an attirbute error is thrown, kick out the author
+        except AttributeError:  # If an attribute error is thrown, kick out the author
             await message.guild.kick(message.author, reason="Toxic Message Limit Exceeded")

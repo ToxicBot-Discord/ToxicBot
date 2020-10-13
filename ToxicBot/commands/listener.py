@@ -74,5 +74,5 @@ class ToxicBotListener(commands.Cog):
             return  # Do not add to database if user is the bot owner
         try:
             toxic_bot_adder.addToxicCount(SERVER_ID, USER_ID)  # Add to the database
-        except AttributeError:  # If an attirbute error is thrown, kick out the author
+        except AttributeError:  # If an attribute error is thrown, kick out the author
             await message.guild.kick(message.author, reason="Toxic Message Limit Exceeded")

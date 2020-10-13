@@ -17,7 +17,7 @@ Below you will find the process and workflow used to review and merge your chang
 ```
 $ git clone https://github.com/<your-username>/ToxicBot
 $ cd ToxicBot/
-$ git remote add upstream https://github.com/Sid200026/ToxicBot.git
+$ git remote add upstream https://github.com/ToxicBot-Discord/ToxicBot.git
 ```
 - If you have already forked the project, update your copy before working.
 ```

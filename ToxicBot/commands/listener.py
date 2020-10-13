@@ -10,10 +10,10 @@ from constants.messages import (
     ADMIN_MESSAGE_AFTER_BOT_JOIN,
 )
 from classifier.classifier import predict_toxicity
-from database.add_toxic_count import AddToxicCount
-from database.add_server_config import ServerConfig
+from database.toxic_count import ToxicCount
+from database.server_config import ServerConfig
 
-toxic_bot_adder = AddToxicCount()
+toxic_bot_adder = ToxicCount()
 logger = logging.getLogger("")
 
 

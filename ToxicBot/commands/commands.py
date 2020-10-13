@@ -6,7 +6,7 @@ from constants.messages import (
     INFO_MESSAGE,
     HELP_MESSAGE,
 )
-from database.add_server_config import ServerConfig
+from database.server_config import ServerConfig
 
 
 class ToxicBotGeneralCommands(commands.Cog):

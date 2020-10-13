@@ -15,9 +15,9 @@ cd ToxicBot/
 
 mkdir -p dump
 cd dump/
-wget -q --show-progress --progress=bar:force https://github.com/Sid200026/ToxicBot/releases/download/v0.0.2/ToxicBot_GloVeEmbedding.json 2>&1
-wget -q --show-progress --progress=bar:force https://github.com/Sid200026/ToxicBot/releases/download/v0.0.2/ToxicBot_Tokenizer.pickle 2>&1
-wget -q --show-progress --progress=bar:force https://github.com/Sid200026/ToxicBot/releases/download/v0.0.2/ToxicBot_Weights.h5 2>&1
+wget -q --show-progress --progress=bar:force https://github.com/ToxicBot-Discord/ToxicBot/releases/download/v0.0.2/ToxicBot_GloVeEmbedding.json 2>&1
+wget -q --show-progress --progress=bar:force https://github.com/ToxicBot-Discord/ToxicBot/releases/download/v0.0.2/ToxicBot_Tokenizer.pickle 2>&1
+wget -q --show-progress --progress=bar:force https://github.com/ToxicBot-Discord/ToxicBot/releases/download/v0.0.2/ToxicBot_Weights.h5 2>&1
 cd ..
 # Create a virtual environment and install python dependencies
 

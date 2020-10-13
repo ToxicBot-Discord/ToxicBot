@@ -1,10 +1,10 @@
 # ToxicBot
 
-<img src="https://github.com/Sid200026/ToxicBot/blob/master/public/Logo.png" width="500" alt="Toxic Bot">
+<img src="https://github.com/ToxicBot-Discord/ToxicBot/blob/master/public/Logo.png" width="500" alt="Toxic Bot">
 
 **Disclaimer: The dataset used for training this bot contains text that may be considered profane, vulgar, or offensive.**
 
-- Github : https://github.com/Sid200026/ToxicBot/
+- Github : https://github.com/ToxicBot-Discord/ToxicBot/
 - Discord : https://discord.com/
 
 **View the demo of ToxicBot on Youtube👇👇**
@@ -43,7 +43,7 @@ Discussing things you care about can be difficult. The threat of abuse and haras
 ### Installation - Mac/Linux
 
 ```bash
-apple@Apples-MacBook-Air ~ % git clone https://github.com/Sid200026/ToxicBot.git
+apple@Apples-MacBook-Air ~ % git clone https://github.com/ToxicBot-Discord/ToxicBot.git
 apple@Apples-MacBook-Air ~ % cd ToxicBot
 apple@Apples-MacBook-Air ~ % bash setup.sh
 apple@Apples-MacBook-Air ~ % cd ToxicBot
@@ -58,7 +58,7 @@ apple@Apples-MacBook-Air ~ % python app.py
 * Now open the "git bash" app (Righ-Click on the desktop you will find the "git bash here" option.)
 * Clone the repository -
 ```
-git clone https://github.com/Sid200026/ToxicBot.git
+git clone https://github.com/ToxicBot-Discord/ToxicBot.git
 ```
 * Execute these commands in your git bash
 ```
@@ -81,12 +81,12 @@ python app.py
 ### Toxic Comment Classification
 
 #### Model 1
-- Github : https://github.com/Sid200026/Toxic-Comment-Classification
+- Github : https://github.com/ToxicBot-Discord/Toxic-Comment-Classification
 - Kaggle : https://www.kaggle.com/c/jigsaw-toxic-comment-classification-challenge/
 - Algorithm : GloVe Embedding and Recurrent Neural Network ( LSTM )
 
 #### Model 2 ( Used here )
-- Github : https://github.com/Sid200026/Unintended-Bias-in-Toxicity-Classification
+- Github : https://github.com/ToxicBot-Discord/Unintended-Bias-in-Toxicity-Classification
 - Kaggle : https://www.kaggle.com/c/jigsaw-unintended-bias-in-toxicity-classification
 - Algorithm : GloVe Embedding and Recurrent Neural Network ( LSTM )
 

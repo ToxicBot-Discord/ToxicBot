@@ -1,5 +1,9 @@
-ToxicBot: Discord bot for detecting and deleting toxic messages
-################################################################
+========
+ToxicBot
+========
+----------------------------------------------------------------------------------------------------------
+Discord bot for detecting and deleting toxic messagesDiscord bot for detecting and deleting toxic messages
+----------------------------------------------------------------------------------------------------------
 
 ..
   Including logo image below as raw HTML since GitHub doesn't seem to support image scaling in RST: https://github.com/github/markup/issues/295

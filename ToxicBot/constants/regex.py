@@ -1,1 +1,0 @@
-TOXIC_REGEX = r"toxic"

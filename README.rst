@@ -1,9 +1,9 @@
 ========
 ToxicBot
 ========
-----------------------------------------------------------------------------------------------------------
-Discord bot for detecting and deleting toxic messagesDiscord bot for detecting and deleting toxic messages
-----------------------------------------------------------------------------------------------------------
+-----------------------------------------------------
+Discord bot for detecting and deleting toxic messages
+-----------------------------------------------------
 
 ..
   Including logo image below as raw HTML since GitHub doesn't seem to support image scaling in RST: https://github.com/github/markup/issues/295
@@ -146,7 +146,7 @@ Model 1
 
 - **GitHub:** https://github.com/ToxicBot-Discord/Toxic-Comment-Classification
 - **Kaggle:** https://www.kaggle.com/c/jigsaw-toxic-comment-classification-challenge/
-- **lgorithm:** GloVe Embedding and Recurrent Neural Network ( LSTM )
+- **Algorithm:** GloVe Embedding and Recurrent Neural Network ( LSTM )
 
 Model 2
 -------

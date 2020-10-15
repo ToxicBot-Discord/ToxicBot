@@ -8,6 +8,7 @@ from constants.messages import (
     REMOVAL_MESSAGE,
     PERSONAL_MESSAGE_AFTER_REMOVAL,
     ADMIN_MESSAGE_AFTER_BOT_JOIN,
+    WELCOME_MESSAGE,
 )
 from classifier.classifier import predict_toxicity
 from database.toxic_count import ToxicCount
@@ -26,13 +27,17 @@ class ToxicBotListener(commands.Cog):
     async def on_ready(self):
         logger.warning("Logged on as {0}!".format(self.bot.user.name))
 
-    # When the bot is added to a server
+    # Run when someone joins the channel
     @commands.Cog.listener()
     async def on_member_join(self, member):
         channel = member.guild.system_channel
         if channel is not None:
-            await channel.send('Welcome {0.mention}.'.format(member))
-
+            await channel.send(WELCOME_MESSAGE.format(mention = member, name = member.guild))
+        if system_channel is None:
+            await member.create_dm()
+            await member.dm_channel.send(WELCOME_MESSAGE.format(mention = member, name = member.guild)
+        
+    # When the bot is added to a server
     @commands.Cog.listener()
     async def on_guild_join(self, guild):
         server_config = ServerConfig()

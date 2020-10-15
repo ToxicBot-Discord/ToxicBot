@@ -16,6 +16,11 @@ I'm responsible for ensuring a friendly environment that promotes social well be
 Any message that I deem toxic, insulting, threatening etc will be removed and the author will be given a warning. \
 """
 
+WELCOME_MESSAGE = """
+Hi {0.mention}, Welcome to {1.name} Discord Server. \n
+Use /help to see various commands you can use to chat with me
+"""
+
 HELP_MESSAGE = """
 Hi {username}, this is Mr Toxic Bot. \n
 Here's a list of commands you can use to chat with me: \n

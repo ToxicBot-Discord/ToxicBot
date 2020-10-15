@@ -33,7 +33,7 @@ class ToxicBotListener(commands.Cog):
         channel = member.guild.system_channel
         if channel is not None:
             await channel.send(WELCOME_MESSAGE.format(mention = member, name = member.guild))
-        if system_channel is None:
+        if channel is None:
             await member.create_dm()
             await member.dm_channel.send(WELCOME_MESSAGE.format(mention = member, name = member.guild)
         

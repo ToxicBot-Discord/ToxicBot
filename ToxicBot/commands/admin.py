@@ -174,10 +174,11 @@ class ToxicBotAdminCommands(commands.Cog):
         member = ctx.author
         server_config = ServerConfig()
         SERVER_OWNER_ID = str(member.id)
-        SERVER_ID = 0
+        SERVER_ID = "-1"
         try:
             # Get the server config for servers that the user is an admin
-            SERVER_ID = await server_config.getConfigFromUser(SERVER_OWNER_ID)
+            record = server_config.getConfigFromUser(SERVER_OWNER_ID)
+            SERVER_ID = str(record[0])
         except AttributeError:  # Admin of multiple servers
             index, records = await self.askSpecificServer(ctx, server_config)
             if index == -1:

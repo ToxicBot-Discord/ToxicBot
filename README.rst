@@ -51,7 +51,7 @@ Prerequisites
 - ``pip``
 - Discord Developer Account
 
-Discord
+Docker
 ---------
 
 .. code-block:: bash

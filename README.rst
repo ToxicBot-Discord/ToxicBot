@@ -56,7 +56,7 @@ Docker
 
 .. code-block:: bash
 
-    $ bash secret_create.sh
+    $ sh secret_create.sh
     $ docker-compose build
     $ docker-compose up -d
 
@@ -74,7 +74,7 @@ Then run ``setup.sh`` in your local ``ToxicBot`` repository:
 .. code-block:: bash
 
     $ cd ToxicBot
-    $ bash setup.sh
+    $ sh setup.sh
     
 Source the ``activate`` file and launch the ``app.py`` Python script:
 

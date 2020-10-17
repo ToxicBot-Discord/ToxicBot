@@ -51,6 +51,15 @@ Prerequisites
 - ``pip``
 - Discord Developer Account
 
+Discord
+---------
+
+.. code-block:: bash
+
+    $ bash secret_create.sh
+    $ docker-compose build
+    $ docker-compose up -d
+
 macOS/Linux
 ---------
 

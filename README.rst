@@ -2,6 +2,8 @@
 ToxicBot
 ========
 
+|platform| |version| |code_style|
+
 **Discord bot for detecting and deleting toxic messages**
 
 ..
@@ -51,6 +53,15 @@ Prerequisites
 - ``pip``
 - Discord Developer Account
 
+Docker
+---------
+
+.. code-block:: bash
+
+    $ sh secret_create.sh
+    $ docker-compose build
+    $ docker-compose up -d
+
 macOS/Linux
 ---------
 
@@ -65,7 +76,7 @@ Then run ``setup.sh`` in your local ``ToxicBot`` repository:
 .. code-block:: bash
 
     $ cd ToxicBot
-    $ bash setup.sh
+    $ sh setup.sh
     
 Source the ``activate`` file and launch the ``app.py`` Python script:
 
@@ -162,3 +173,18 @@ Links
 
 - **GitHub:** https://github.com/ToxicBot-Discord/ToxicBot/
 - **Discord:** https://discord.com/
+
+.. |platform| image:: https://img.shields.io/badge/platform-discord-purple
+    :alt: Platform
+    :scale: 100%
+    :target: https://img.shields.io/badge/platform-discord-purple
+
+.. |version| image:: https://img.shields.io/badge/version-2.0.0-yellow
+    :alt: Version
+    :scale: 100%
+    :target: https://img.shields.io/badge/version-2.0.0-yellow
+
+.. |code_style| image:: https://img.shields.io/badge/code%20style-black-black
+    :alt: Code Style
+    :scale: 100%
+    :target: https://img.shields.io/badge/code%20style-black-black

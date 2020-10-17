@@ -1,0 +1,5 @@
+ToxicBot/dump/
+ToxicBot/env/
+ToxicBot/venv/
+ToxicBot/*.ini
+ToxicBot/*.log

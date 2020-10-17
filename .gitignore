@@ -7,3 +7,5 @@ secret.ini
 dump/
 .vscode/
 __pycache__/
+secret/
+.env

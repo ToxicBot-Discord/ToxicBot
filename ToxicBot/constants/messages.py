@@ -25,7 +25,7 @@ Here's a list of commands you can use to chat with me: \n
 """
 
 WELCOME_MESSAGE = """
-Hi {0.mention}, Welcome to {1.name} Discord Server. \n
+Hi {0.mention}, Welcome to {1.name} Server.
 Use /help to see various commands you can use to chat with me
 """
 

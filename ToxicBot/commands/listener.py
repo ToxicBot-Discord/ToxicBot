@@ -32,10 +32,10 @@ class ToxicBotListener(commands.Cog):
     async def on_member_join(self, member):
         channel = member.guild.system_channel
         if channel is not None:
-            await channel.send(WELCOME_MESSAGE.format(mention = member, name = member.guild))
+            await channel.send(WELCOME_MESSAGE.format(member, member.guild))
         if channel is None:
             await member.create_dm()
-            await member.dm_channel.send(WELCOME_MESSAGE.format(mention = member, name = member.guild))
+            await member.dm_channel.send(WELCOME_MESSAGE.format(member, member.guild))
         
     # When the bot is added to a server
     @commands.Cog.listener()

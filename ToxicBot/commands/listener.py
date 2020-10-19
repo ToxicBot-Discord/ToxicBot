@@ -41,10 +41,10 @@ class ToxicBotListener(commands.Cog):
             # Send a message to the general channel
             general = find(lambda x: x.name == "general", guild.text_channels)
             if general and general.permissions_for(guild.me).send_messages:
-                await general.send(ADMIN_MESSAGE_AFTER_BOT_JOIN)
+                await general.send(embed=embedded.info(ADMIN_MESSAGE_AFTER_BOT_JOIN))
         else:
             await owner.create_dm()
-            await owner.dm_channel.send(ADMIN_MESSAGE_AFTER_BOT_JOIN)
+            await owner.dm_channel.send(embed=embedded.info(ADMIN_MESSAGE_AFTER_BOT_JOIN))
 
     # When a message is sent in the guild
     @commands.Cog.listener()
@@ -61,10 +61,10 @@ class ToxicBotListener(commands.Cog):
         if toxicity == 0:
             return
         await message.delete()  # Delete the message
-        await message.channel.send(REMOVAL_MESSAGE.format(username=message.author.mention))
+        await message.channel.send(embed=embedded.info(REMOVAL_MESSAGE.format(username=message.author.mention)))
         await message.author.create_dm()
         # Warn the author
-        await message.author.dm_channel.send(PERSONAL_MESSAGE_AFTER_REMOVAL)
+        await message.author.dm_channel.send(embed=embedded.info(PERSONAL_MESSAGE_AFTER_REMOVAL))
 
         USER_ID = str(message.author.id)
         SERVER_ID = str(message.guild.id)

@@ -39,6 +39,6 @@ def as_embed(
     return em
 
 
-error = partial(as_embed, color=0xff0000, title='Oops!')
-info = partial(as_embed, color=0x0000ff, title='Just so you know')
-success = partial(as_embed, color=0x00ff00, title='You did it!')
+error = partial(as_embed, color=0xff041b, title='Oops!')
+info = partial(as_embed, color=0xb900ff, title='Just so you know')
+success = partial(as_embed, color=0x6fc12e, title='You did it!')

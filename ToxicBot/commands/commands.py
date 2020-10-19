@@ -36,11 +36,11 @@ class ToxicBotGeneralCommands(commands.Cog):
         try:
             server_config.getConfigFromUser(str(member.id))
         except commands.NotOwner:  # User does not own a server
-            await ctx.send(embed=embedded.info(HELP_MESSAGE.format(username=member.name)))
+            await ctx.send(embed=embedded.help(HELP_MESSAGE.format(username=member.name)))
             return
         except AttributeError:
             pass
-        await ctx.send(embed=embedded.info(ADMIN_HELP_MESSAGE.format(username=member.name)))
+        await ctx.send(embed=embedded.help(ADMIN_HELP_MESSAGE.format(username=member.name)))
 
     # Command to report any issues
     @commands.command()

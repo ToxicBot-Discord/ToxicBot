@@ -39,6 +39,7 @@ def as_embed(
     return em
 
 
-error = partial(as_embed, color=0xff041b, title='Oops!', footer='Error')
-info = partial(as_embed, color=0xb900ff, title='Just so you know', footer='Info')
-success = partial(as_embed, color=0x6fc12e, title='You did it!', footer='Success')
+error = partial(as_embed, color=0xff041b, title='Error')
+info = partial(as_embed, color=0xCA45FF)
+help = partial(as_embed, color=0xCA45FF, title='Help')
+success = partial(as_embed, color=0x6fc12e, title='Success')

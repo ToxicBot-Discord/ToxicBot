@@ -25,6 +25,5 @@ def as_embed(
 
 
 error = partial(as_embed, color=0xff0000, title='Oops!')
-warning = partial(as_embed, color=0xffff00, title='Beware ...')
 info = partial(as_embed, color=0x0000ff, title='Just so you know')
 success = partial(as_embed, color=0x00ff00, title='You did it!')

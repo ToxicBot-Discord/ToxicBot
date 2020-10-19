@@ -85,7 +85,7 @@ class ToxicBotAdminCommands(commands.Cog):
         guild = self.bot.get_guild(int(SERVER_ID))
         guild_name = guild.name if guild is not None else ""
 
-        await ctx.send(embed=embedded.yes(
+        await ctx.send(embed=embedded.success(
             ADMIN_CONFIG.format(guild=guild_name, count=record[1], time=record[2])
         ))
 
@@ -122,7 +122,7 @@ class ToxicBotAdminCommands(commands.Cog):
             SERVER_ID = server_config.modifyServerConfig(SERVER_OWNER_ID, server_id=SERVER_ID, count=count)
         guild = self.bot.get_guild(int(SERVER_ID))
         guild_name = guild.name if guild is not None else ""
-        await ctx.send(embed=embedded.yes(
+        await ctx.send(embed=embedded.success(
             SUCCESSFUL_UPDATE.format(entity="Toxic Count Threshold Per User", server=guild_name)
         ))
 

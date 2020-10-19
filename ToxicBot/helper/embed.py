@@ -40,6 +40,6 @@ def as_embed(
 
 
 error = partial(as_embed, color=0xff041b, title='Error')
-info = partial(as_embed, color=0xCA45FF)
+info = partial(as_embed, color=0xCA45FF, title='Info')
 help = partial(as_embed, color=0xCA45FF, title='Help')
 success = partial(as_embed, color=0x6fc12e, title='Success')

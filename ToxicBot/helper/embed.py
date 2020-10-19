@@ -15,6 +15,8 @@ info => blue/your default custom color
 
 Feel free to create others depending on your needs.
 
+You can try them out here:
+# https://leovoel.github.io/embed-visualizer/
 """
 
 
@@ -26,15 +28,12 @@ def as_embed(
     **kw
 ) -> Embed:
     """Wrap a string around a stylized discord Embed object."""
-    if title is None:
-        title = 'Toxic Bot Message'
     em = Embed(
         type='rich',
-        title=title,
+        title=title or 'Toxic Bot',
         description=text,
         **kw
     )
-    em.set_author(name='Toxic Bot')
     if footer is not None:
         em.set_footer(text=footer)
     return em

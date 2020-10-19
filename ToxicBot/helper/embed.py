@@ -14,3 +14,4 @@ def as_embed(text: str, **kw) -> Embed:
 error   = partial(as_embed, color=0xff0000)
 warning = partial(as_embed, color=0xffff00)
 info    = partial(as_embed, color=0x0000ff)
+yes     = partial(as_embed, color=0x00ff00)

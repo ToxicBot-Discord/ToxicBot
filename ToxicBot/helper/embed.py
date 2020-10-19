@@ -3,6 +3,21 @@ from typing import Optional
 from discord import Embed
 
 
+"""
+Utils to produce Discord Embed constructs.
+
+You can use the partials `error`, `success` and `info` to apply a style more relevant
+to the nature of the message you want to embed, e.g.
+
+error => red border
+success => green border
+info => blue/your default custom color
+
+Feel free to create others depending on your needs.
+
+"""
+
+
 def as_embed(
     text: str,
     *,
@@ -10,6 +25,7 @@ def as_embed(
     title: Optional[str] = None,
     **kw
 ) -> Embed:
+    """Wrap a string around a stylized discord Embed object."""
     if title is None:
         title = 'Toxic Bot Message'
     em = Embed(

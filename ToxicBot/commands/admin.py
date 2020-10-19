@@ -102,7 +102,9 @@ class ToxicBotAdminCommands(commands.Cog):
             count = int(arg)  # Value to set the count config to
         except Exception:
             # If numerical value is not passed
-            await ctx.send(embed=embedded.error(REQUIRE_NUMERICAL_VALUE.format(entity="Toxic Count Threshold Per User")))
+            await ctx.send(embed=embedded.error(
+                REQUIRE_NUMERICAL_VALUE.format(entity="Toxic Count Threshold Per User")
+            ))
             return
         member = ctx.author
         server_config = ServerConfig()
@@ -120,7 +122,9 @@ class ToxicBotAdminCommands(commands.Cog):
             SERVER_ID = server_config.modifyServerConfig(SERVER_OWNER_ID, server_id=SERVER_ID, count=count)
         guild = self.bot.get_guild(int(SERVER_ID))
         guild_name = guild.name if guild is not None else ""
-        await ctx.send(embed=embedded.yes(SUCCESSFUL_UPDATE.format(entity="Toxic Count Threshold Per User", server=guild_name)))
+        await ctx.send(embed=embedded.yes(
+            SUCCESSFUL_UPDATE.format(entity="Toxic Count Threshold Per User", server=guild_name)
+        ))
 
     # Used to set the days_threshold value in the server config
     @commands.command()
@@ -134,7 +138,9 @@ class ToxicBotAdminCommands(commands.Cog):
         try:
             days = int(arg)
         except Exception:
-            await ctx.send(embed=embedded.error(REQUIRE_NUMERICAL_VALUE.format(entity="Days before resetting toxic count for an user")))
+            await ctx.send(embed=embedded.error(
+                REQUIRE_NUMERICAL_VALUE.format(entity="Days before resetting toxic count for an user")
+            ))
             return
         member = ctx.author
         server_config = ServerConfig()

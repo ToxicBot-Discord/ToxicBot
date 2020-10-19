@@ -9,6 +9,7 @@ from constants.messages import (
     PERSONAL_MESSAGE_AFTER_REMOVAL,
     ADMIN_MESSAGE_AFTER_BOT_JOIN,
 )
+from helper import embed as embedded
 from classifier.classifier import predict_toxicity
 from database.toxic_count import ToxicCount
 from database.server_config import ServerConfig

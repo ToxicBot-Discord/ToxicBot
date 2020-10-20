@@ -24,6 +24,11 @@ Here's a list of commands you can use to chat with me: \n
 - /help - You'll receive the list of commands
 """
 
+WELCOME_MESSAGE = """
+Hi {0.mention}, Welcome to {1.name} Server.
+Use /help to see various commands you can use to chat with me
+"""
+
 REPORT_MESSAGE = """
 Need something wrong? Here's a link to report that!
 """

@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 
 ### Released
 
+- 2.1.0 : https://github.com/Sid200026/ToxicBot/releases/tag/v2.1.0
+  - Embedding bot messages instead of normal text
+  - Welcome message for new members
+
 - 2.0.0 : https://github.com/Sid200026/ToxicBot/releases/tag/v2.0.0
 
   - Allows removal of users based on server limits

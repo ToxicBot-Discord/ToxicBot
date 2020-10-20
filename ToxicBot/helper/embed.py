@@ -27,7 +27,7 @@ def as_embed(
     title: Optional[str] = None,
     **kw
 ) -> Embed:
-    """Wrap a string around a stylized discord Embed object."""
+    """Wrap a string in a stylized discord Embed object."""
     em = Embed(
         type='rich',
         title=title or 'Toxic Bot',

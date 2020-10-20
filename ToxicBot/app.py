@@ -1,3 +1,7 @@
+import discord
+intents = discord.Intents.default()
+intents.members = True
+
 from discord.ext import commands
 import logging
 from configparser import RawConfigParser
@@ -24,7 +28,7 @@ create_table.createSchema()
 
 logger.info("Database created successfully")
 
-bot = commands.Bot(command_prefix=COMMAND_PREFIX)
+bot = commands.Bot(command_prefix=COMMAND_PREFIX, intents = intents)
 bot.remove_command("help")  # Remove the default help command
 # Add cogs to the bot
 bot.add_cog(ToxicBotGeneralCommands(bot))

@@ -159,12 +159,12 @@ class ToxicBotAdminCommands(commands.Cog):
         guild = self.bot.get_guild(int(SERVER_ID))
         guild_name = guild.name if guild is not None else ""
         # Send a success message to the user
-        await ctx.send(
+        await ctx.send(embed=embedded.success(
             SUCCESSFUL_UPDATE.format(
                 entity="Days before resetting toxic count for an user",
                 server=guild_name,
             )
-        )
+        ))
 
     # This command can be used to get the top n toxic comments for a particular server
     @commands.command()
@@ -172,7 +172,7 @@ class ToxicBotAdminCommands(commands.Cog):
     @commands.is_owner()
     async def toptoxic(self, ctx, arg=None):
         if arg is None:
-            await ctx.send(BAD_ARGUMENT)
+            await ctx.send(embed=embedded.error(BAD_ARGUMENT))
             return
         top = None
         try:

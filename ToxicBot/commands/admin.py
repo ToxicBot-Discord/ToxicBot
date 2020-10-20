@@ -1,6 +1,7 @@
 from discord.ext import commands
 import discord
 import asyncio
+from helper import embed as embedded
 from constants.messages import (
     SUCCESSFUL_UPDATE,
     REQUIRE_NUMERICAL_VALUE,
@@ -42,7 +43,7 @@ class ToxicBotAdminCommands(commands.Cog):
             if guild is not None:
                 guild_name = guild.name  # Get the guild name from server id
                 servers.append(guild_name)
-        await ctx.send(ADMIN_REQUEST_SERVER_ID)
+        await ctx.send(embed=embedded.info(ADMIN_REQUEST_SERVER_ID))
         embed = self.generate_embed("Servers", servers)
         await ctx.send(embed=embed)  # Send a multi-choice option to the user to select a specific server
         message = None
@@ -50,17 +51,17 @@ class ToxicBotAdminCommands(commands.Cog):
             # Wait for 5 seconds for response
             message = await self.bot.wait_for("message", timeout=5.0, check=check)
         except asyncio.TimeoutError:
-            await ctx.send(REQUEST_TIMEOUT)  # Send a timeout message
+            await ctx.send(embed=embedded.error(REQUEST_TIMEOUT))  # Send a timeout message
             return -1
         index = None
         try:
             index = int(message.content)  # Convert the string to number
         except Exception:
             # If non-numeric characters are passed
-            await ctx.send(REQUIRE_NUMERICAL_VALUE.format(entity="Server Number"))
+            await ctx.send(embed=embedded.error(REQUIRE_NUMERICAL_VALUE.format(entity="Server Number")))
             return -1
         if index > len(records):  # Check if index is out of bounds
-            await ctx.send(BAD_ARGUMENT)
+            await ctx.send(embed=embedded.error(BAD_ARGUMENT))
             return
         return index, records
 
@@ -84,7 +85,9 @@ class ToxicBotAdminCommands(commands.Cog):
         guild = self.bot.get_guild(int(SERVER_ID))
         guild_name = guild.name if guild is not None else ""
 
-        await ctx.send(ADMIN_CONFIG.format(guild=guild_name, count=record[1], time=record[2]))
+        await ctx.send(embed=embedded.success(
+            ADMIN_CONFIG.format(guild=guild_name, count=record[1], time=record[2])
+        ))
 
     # Changes the toxic_count_config for that server
     @commands.command()
@@ -92,14 +95,16 @@ class ToxicBotAdminCommands(commands.Cog):
     @commands.is_owner()
     async def setcount(self, ctx, arg=None):
         if arg is None:
-            await ctx.send(BAD_ARGUMENT)
+            await ctx.send(embed=embedded.error(BAD_ARGUMENT))
             return
         count = None
         try:
             count = int(arg)  # Value to set the count config to
         except Exception:
             # If numerical value is not passed
-            await ctx.send(REQUIRE_NUMERICAL_VALUE.format(entity="Toxic Count Threshold Per User"))
+            await ctx.send(embed=embedded.error(
+                REQUIRE_NUMERICAL_VALUE.format(entity="Toxic Count Threshold Per User")
+            ))
             return
         member = ctx.author
         server_config = ServerConfig()
@@ -117,7 +122,9 @@ class ToxicBotAdminCommands(commands.Cog):
             SERVER_ID = server_config.modifyServerConfig(SERVER_OWNER_ID, server_id=SERVER_ID, count=count)
         guild = self.bot.get_guild(int(SERVER_ID))
         guild_name = guild.name if guild is not None else ""
-        await ctx.send(SUCCESSFUL_UPDATE.format(entity="Toxic Count Threshold Per User", server=guild_name))
+        await ctx.send(embed=embedded.success(
+            SUCCESSFUL_UPDATE.format(entity="Toxic Count Threshold Per User", server=guild_name)
+        ))
 
     # Used to set the days_threshold value in the server config
     @commands.command()
@@ -125,13 +132,15 @@ class ToxicBotAdminCommands(commands.Cog):
     @commands.is_owner()
     async def setdays(self, ctx, arg=None):
         if arg is None:
-            await ctx.send(BAD_ARGUMENT)
+            await ctx.send(embed=embedded.error(BAD_ARGUMENT))
             return
         days = None
         try:
             days = int(arg)
         except Exception:
-            await ctx.send(REQUIRE_NUMERICAL_VALUE.format(entity="Days before resetting toxic count for an user"))
+            await ctx.send(embed=embedded.error(
+                REQUIRE_NUMERICAL_VALUE.format(entity="Days before resetting toxic count for an user")
+            ))
             return
         member = ctx.author
         server_config = ServerConfig()
@@ -150,12 +159,12 @@ class ToxicBotAdminCommands(commands.Cog):
         guild = self.bot.get_guild(int(SERVER_ID))
         guild_name = guild.name if guild is not None else ""
         # Send a success message to the user
-        await ctx.send(
+        await ctx.send(embed=embedded.success(
             SUCCESSFUL_UPDATE.format(
                 entity="Days before resetting toxic count for an user",
                 server=guild_name,
             )
-        )
+        ))
 
     # This command can be used to get the top n toxic comments for a particular server
     @commands.command()
@@ -163,13 +172,15 @@ class ToxicBotAdminCommands(commands.Cog):
     @commands.is_owner()
     async def toptoxic(self, ctx, arg=None):
         if arg is None:
-            await ctx.send(BAD_ARGUMENT)
+            await ctx.send(embed=embedded.error(BAD_ARGUMENT))
             return
         top = None
         try:
             top = int(arg)
         except Exception:
-            await ctx.send(REQUIRE_NUMERICAL_VALUE.format(entity="Number of entries required"))
+            await ctx.send(embed=embedded.error(
+                REQUIRE_NUMERICAL_VALUE.format(entity="Number of entries required")
+            ))
             return
         member = ctx.author
         server_config = ServerConfig()

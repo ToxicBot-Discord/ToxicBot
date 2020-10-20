@@ -1,6 +1,7 @@
 from discord.ext import commands
 import discord
 
+from helper import embed as embedded
 from constants.messages import (
     ADMIN_HELP_MESSAGE,
     INFO_MESSAGE,
@@ -18,7 +19,7 @@ class ToxicBotGeneralCommands(commands.Cog):
     @commands.dm_only()
     async def info(self, ctx):
         member = ctx.author
-        await ctx.send(INFO_MESSAGE.format(username=member.name))
+        await ctx.send(embed=embedded.info(INFO_MESSAGE.format(username=member.name)))
 
     """
     There are two types of Help commands, one for server admins and one for
@@ -35,11 +36,11 @@ class ToxicBotGeneralCommands(commands.Cog):
         try:
             server_config.getConfigFromUser(str(member.id))
         except commands.NotOwner:  # User does not own a server
-            await ctx.send(HELP_MESSAGE.format(username=member.name))
+            await ctx.send(embed=embedded.help(HELP_MESSAGE.format(username=member.name)))
             return
         except AttributeError:
             pass
-        await ctx.send(ADMIN_HELP_MESSAGE.format(username=member.name))
+        await ctx.send(embed=embedded.help(ADMIN_HELP_MESSAGE.format(username=member.name)))
 
     # Command to report any issues
     @commands.command()

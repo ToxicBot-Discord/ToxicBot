@@ -179,10 +179,10 @@ Links
     :scale: 100%
     :target: https://img.shields.io/badge/platform-discord-purple
 
-.. |version| image:: https://img.shields.io/badge/version-2.0.0-yellow
+.. |version| image:: https://img.shields.io/badge/version-2.1.0-yellow
     :alt: Version
     :scale: 100%
-    :target: https://img.shields.io/badge/version-2.0.0-yellow
+    :target: https://img.shields.io/badge/version-2.1.0-yellow
 
 .. |code_style| image:: https://img.shields.io/badge/code%20style-black-black
     :alt: Code Style

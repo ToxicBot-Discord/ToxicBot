@@ -5,11 +5,14 @@ MODE = os.environ.get("MODE")
 LOG_FILE_NAME = "actions.log"
 LOG_FORMAT = "%(asctime)s %(levelname)s || %(message)s"  # Format for logging
 
+MAX_BYTES = 100
+BACKUP = 10
+
 # Log Settings
 
 logger = logging.getLogger("")
 
-file_handler = logging.FileHandler(LOG_FILE_NAME)  # In production log to file
+file_handler = logging.RotatingFileHandler(LOG_FILE_NAME, maxBytes=MAX_BYTES, backup = BACKUP)  # In production log to file
 file_handler.setLevel(logging.WARNING)
 
 console_handler = logging.StreamHandler()  # In development, log to console

@@ -45,6 +45,8 @@ class ServerConfig:
     def getConfigFromUser(self, user_id, server_id=None):
         if not self.connection:
             raise ValueError("Connection does not exist")
+        if not self.connection:
+            raise ValueError("Connection does not exist")
         cursor = self.connection.cursor()
         if server_id is not None:  # If server_id is passed as well then use it
             sql_select_query = "SELECT * from tblServerConfig WHERE Server_Owner_Id = %s AND Server_Id = %s"
@@ -65,7 +67,8 @@ class ServerConfig:
 
     # When a bot joins a server, create a configuration for it
     def createServerConfig(self, server_id, server_owner_id, count=20, threshold=14):
-
+        if not self.connection:
+            raise ValueError("Connection does not exist")
         if not self.connection:
             raise ValueError("Connection does not exist")
         records = self.getConfig(server_id)
@@ -80,6 +83,8 @@ class ServerConfig:
 
     # Method called to modify the server config
     def modifyServerConfig(self, server_owner_id, server_id=None, count=None, threshold=None):
+        if not self.connection:
+            raise ValueError("Connection does not exist")
         record = self.getConfigFromUser(server_owner_id, server_id)  # Get the server record
         if record[3] != server_owner_id:  # If user is not an admin of the server, raise an error
             raise NotOwner("You are not the admin of this server")

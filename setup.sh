@@ -23,7 +23,7 @@ cd ..
 
 echo "${BLUE}Installing a virtual environment and python dependencies${NC}\n"
 
-python3 -m venv env
+python -m venv env
 source env/bin/activate
 pip install -r requirements-dev.txt
 pre-commit install

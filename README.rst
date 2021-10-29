@@ -71,12 +71,18 @@ For installing on macOS or Linux, first clone the repository:
 
     $ git clone https://github.com/ToxicBot-Discord/ToxicBot.git
 
-Then run ``setup.sh`` in your local ``ToxicBot`` repository:
+Then run ``setup-unix.sh`` in your local ``ToxicBot`` repository:
 
 .. code-block:: bash
 
     $ cd ToxicBot
-    $ sh setup.sh
+    $ sh setup-unix.sh
+
+You could also use the ``make`` command instead of running the script manually
+
+.. code-block:: bash
+    $ cd ToxicBot
+    $ sh setup-unix.sh
     
 Source the ``activate`` file and launch the ``app.py`` Python script:
 
